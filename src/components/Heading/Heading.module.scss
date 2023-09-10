@@ -1,0 +1,61 @@
+$photo-max-height: 4.8cm;
+$photo-max-width: calc($photo-max-height * 3.5 / 4.5);
+
+.heading {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.infoAndPhoto {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.photoContainer {
+  max-height: $photo-max-height;
+  max-width: $photo-max-width;
+  //  fit to the max height of flexbox
+}
+
+.socials {
+  display: flex;
+}
+
+.name {
+  font-size: 4rem;
+  text-transform: uppercase;
+}
+
+.position {
+  font-size: 1.75rem;
+}
+
+.mainInfo {
+  text-align: justify;
+
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+  }
+
+  & .line {
+    letter-spacing: calc(100% - 1em);
+    white-space: pre;
+  }
+}
+
+.photo {
+  width: auto;
+  height: 100%;
+}
+
+.positionName {
+  text-transform: capitalize;
+}
+
+.nameLine:last-child {
+  font-weight: 600;
+}

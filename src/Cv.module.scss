@@ -1,0 +1,29 @@
+$padding-vert: 1cm;
+$padding-horiz: 2cm;
+$brace-size: 15rem;
+
+$brace-vert-diff: calc($padding-vert - 1.16cm);
+$brace-hor-diff: 0.3cm;
+
+$a4-height: 29.7cm;
+$a4-width: 21cm;
+
+.cv {
+  padding: $padding-vert $padding-horiz;
+  width: 100%;
+  height: 100%;
+}
+
+.curlyBraceUpper {
+    font-size: $brace-size;
+    top: calc($brace-vert-diff);
+    left: $brace-hor-diff;
+    position: absolute;
+}
+
+.curlyBraceDown {
+    font-size: $brace-size;
+    top: calc($a4-height - $brace-vert-diff - 1.5 * $padding-vert);
+    left: $a4-width + $brace-hor-diff + $padding-horiz;
+    position: absolute;
+}

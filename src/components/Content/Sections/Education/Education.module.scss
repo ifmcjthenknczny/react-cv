@@ -1,0 +1,39 @@
+.type {
+    font-size: 0.9rem;
+}
+
+.spec {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.educationItem {
+    margin-bottom: 1rem;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.thesis {
+    font-size: 0.8rem;
+}
+
+.uni {
+    font-weight: 200;
+}
+
+.thesisTitle {
+    font-style: italic;
+    font-weight: 200;
+}
+
+.date {
+    font-size: 0.8rem;
+    margin-top: 0.075rem;
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

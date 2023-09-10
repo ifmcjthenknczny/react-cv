@@ -1,0 +1,31 @@
+import styles from './Education.module.scss'
+import Block from '../../Block'
+import { getData } from 'helpers'
+
+const { educations } = await getData('Content/Sections/Education')
+
+const Education = () => <Block heading="Education" content={<EducationContent educations={educations} />}></Block>
+
+type EducationType = {
+    type: string
+    uni: string
+    spec: string
+    thesis?: string
+    date: [string, string]
+}
+
+const EducationContent = ({ educations }: { educations: EducationType[] }) => <>{educations.map(education => <EducationItem key={education.date[0] + education.date[1]}  {...education} />)}</>
+
+const EducationItem = ({ type, uni, spec, thesis, date }: EducationType) => <div className={styles.educationItem}>
+    <div className={styles.head}>
+        <div>
+            <div className={styles.spec}>{spec}</div>
+            <div className={styles.uni}>{uni}</div>
+        </div>
+        <div className={styles.date}>{date[0]} - {date[1]}</div>
+    </div>
+    <div className={styles.type}>{type}</div>
+    {thesis && <div className={styles.thesis}>Thesis: <span className={styles.thesisTitle}>{thesis}</span></div>}
+</div>
+
+export default Education

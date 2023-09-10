@@ -1,0 +1,14 @@
+.heading {
+    font-weight: 700;
+}
+
+.description {
+    font-size: 0.8rem;
+}
+
+.project {
+    margin-bottom: 0.6rem;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}

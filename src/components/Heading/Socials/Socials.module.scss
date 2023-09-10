@@ -1,0 +1,22 @@
+.socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-bottom: 0.65cm;
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.label {
+  margin-left: 0.5rem;
+}
+
+.socialIcon {
+  display: flex;
+  align-items: center;
+}
