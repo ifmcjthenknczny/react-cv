@@ -1,7 +1,7 @@
 import Block from "../../Block";
-import styles from './Experience.module.scss'
 import React from 'react'
 import { getData } from "../../../../helpers";
+import styles from './Experience.module.scss'
 
 const { experiences } = await getData('Content/Sections/Experience')
 
@@ -14,6 +14,7 @@ export type ExperienceType = {
     company: string
     date: [string, string]
     description: string[]
+    shortCompany?: string
 }
 
 const ExperienceContent = ({ experiences }: { experiences: ExperienceType[] }) => <>{experiences.map(experience => <ExperienceItem key={experience.date[0] + experience.date[1]} {...experience} />)}</>

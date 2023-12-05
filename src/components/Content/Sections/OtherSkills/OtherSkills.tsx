@@ -1,11 +1,12 @@
+import { getData, removeDuplicates } from "../../../../helpers";
+
 import Block from "../../Block";
 import styles from './OtherSkills.module.scss'
-import { getData, removeDuplicates } from "../../../../helpers";
 
 const { tech, excludedTech = [] } = await getData('Content/Sections/OtherSkills')
 const { skills } = (await getData('Content/Sections/KeySkills')) as { skills: { name: string }[] }
 
-const keySkillsNames = skills.map((skill) => skill.name)
+const keySkillsNames = skills.map((skill) => skill.name.toLowerCase())
 
 const LINK = '-'
 

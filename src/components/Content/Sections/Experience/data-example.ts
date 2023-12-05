@@ -9,6 +9,7 @@ const data = {
         "Implemented enchanting strategies for rainbow grazing and magical mane grooming.",
         "Conducted daily unicorn horn inspections to ensure they remained sharp for stardust collection.",
       ],
+      shortCompany: 'DreamCo',
     },
     {
       job: "Master of Pancake Flipping",
@@ -19,6 +20,7 @@ const data = {
         "Conducted rigorous research on the ideal pancake-to-butter ratio for maximum deliciousness.",
         "Hosted 'Pancake Olympics' every weekend, complete with syrup swimming and pancake tossing events.",
       ],
+      shortCompany: 'FSD',
     },
     {
       job: "Cloud Whisperer",

@@ -1,4 +1,5 @@
 const data = {
+  companyName: 'DreamCo',
   activities: [
     { label: "Inventing new spells", percent: 35 },
     { label: "Unicorn grooming", percent: 25 },

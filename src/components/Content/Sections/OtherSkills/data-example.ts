@@ -27,6 +27,7 @@ const data = {
     "MythicalMaps",
     "WitchcraftAI",
   ],
+  excludedTech: [],
 };
 
 export default data;

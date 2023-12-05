@@ -1,15 +1,17 @@
-import Block from "../../Block"
-import { Chart as ChartJS, ChartOptions, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Doughnut } from 'react-chartjs-2';
-import styles from './Responsibilities.module.scss'
 import 'chartjs-plugin-datalabels'
+
+import { ArcElement, Chart as ChartJS, ChartOptions, Legend, Tooltip } from 'chart.js';
+
+import Block from "../../Block"
+import { Doughnut } from 'react-chartjs-2';
 import { OPACITY } from "../KeySkills/KeySkills";
 import { getData } from "../../../../helpers";
-import { ExperienceType as Experience } from "../Experience/Experience";
+import styles from './Responsibilities.module.scss'
 
-const { experiences } = await getData('Content/Sections/Experience') as { experiences: Experience[] }
+const { companyName, activities } = await getData('Content/Sections/Responsibilities') as { companyName: string; activities: Activity[] }
 
-const Responsibilities = () => <Block heading={`My Responsibilities (${experiences[0].company})`} content={<Chart />} />
+
+const Responsibilities = () => <Block heading={`My Responsibilities (${companyName})`} content={<Chart />} />
 
 ChartJS.register(ArcElement, Legend, Tooltip);
 
@@ -46,8 +48,6 @@ const colors = (opacity: number) => [
     `rgba(153, 102, 255, ${opacity})`,
     `rgba(204, 154, 171, ${opacity})`,
 ]
-
-const { activities } = await getData('Content/Sections/Responsibilities') as { activities: Activity[] }
 
 const data = {
     labels: activities.map(({ label }) => label),
