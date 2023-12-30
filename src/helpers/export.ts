@@ -32,4 +32,4 @@ export const exportToPDF = async () => {
     })
 }
 
-export const printCV = () => setTimeout(window.print, 1000)
+export const printCV = () => setTimeout(window.print, 3000)
