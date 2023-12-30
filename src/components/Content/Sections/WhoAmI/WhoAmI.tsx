@@ -1,5 +1,6 @@
-import { getData } from "../../../../helpers";
-import Block from "../../Block";
+import Block from '../../Block'
+import React from 'react'
+import { getData } from '../../../../helpers/data'
 import styles from './WhoAmI.module.scss'
 
 const { content } = await getData('Content/Sections/WhoAmI')

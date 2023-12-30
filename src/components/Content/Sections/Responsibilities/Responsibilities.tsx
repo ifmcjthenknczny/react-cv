@@ -1,11 +1,12 @@
 import 'chartjs-plugin-datalabels'
 
-import { ArcElement, Chart as ChartJS, ChartOptions, Legend, Tooltip } from 'chart.js';
+import { ArcElement, Chart as ChartJS, ChartOptions, Legend, Tooltip } from 'chart.js'
 
-import Block from "../../Block"
-import { Doughnut } from 'react-chartjs-2';
-import { OPACITY } from "../KeySkills/KeySkills";
-import { getData } from "../../../../helpers";
+import Block from '../../Block'
+import { Doughnut } from 'react-chartjs-2'
+import { OPACITY } from '../KeySkills/KeySkills'
+import React from 'react'
+import { getData } from '../../../../helpers/data'
 import styles from './Responsibilities.module.scss'
 
 const { companyName, activities } = await getData('Content/Sections/Responsibilities') as { companyName: string; activities: Activity[] }
@@ -13,7 +14,7 @@ const { companyName, activities } = await getData('Content/Sections/Responsibili
 
 const Responsibilities = () => <Block heading={`My Responsibilities (${companyName})`} content={<Chart />} />
 
-ChartJS.register(ArcElement, Legend, Tooltip);
+ChartJS.register(ArcElement, Legend, Tooltip)
 
 type Activity = {
     label: string
@@ -60,6 +61,6 @@ const data = {
             borderWidth: 1,
         },
     ],
-};
+}
 
 export default Responsibilities

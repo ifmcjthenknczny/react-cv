@@ -1,5 +1,7 @@
-import { determineFontColor, getData } from "../../../../helpers";
-import Block from "../../Block";
+import Block from '../../Block'
+import React from 'react'
+import { determineFontColor } from '../../../../helpers/color'
+import { getData } from '../../../../helpers/data'
 import styles from './KeySkills.module.scss'
 
 const { skills } = await getData('Content/Sections/KeySkills')

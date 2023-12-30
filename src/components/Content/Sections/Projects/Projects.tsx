@@ -1,12 +1,13 @@
-import { getData } from "helpers";
-import Block from "../../Block";
+import Block from '../../Block'
+import React from 'react'
+import { getData } from 'helpers/data'
 import styles from './Projects.module.scss'
 
 const { projects } = await getData('Content/Sections/Projects')
 
 const Projects = () => <Block heading="notable projects" content={<ProjectContent projects={projects} />} />
 
-export default Projects;
+export default Projects
 
 type ProjectType = {
     name: string

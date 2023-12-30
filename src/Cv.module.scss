@@ -23,7 +23,36 @@ $a4-width: 21cm;
 
 .curlyBraceDown {
     font-size: $brace-size;
-    top: calc($a4-height - $brace-vert-diff - 1.5 * $padding-vert);
+    top: calc($a4-height - $brace-vert-diff - 2 * $padding-vert);
     left: $a4-width + $brace-hor-diff + $padding-horiz;
     position: absolute;
+}
+
+.downloadButton {
+  background: linear-gradient(to bottom, #007bff 0%, #0062cc 100%);
+  color: white;  
+  padding: 10px 20px;
+}
+
+.downloadButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #3498db;
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: darken(#3498db, 10%);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(#3498db, 0.5);
+  }
+  @media print {
+    display: none !important;
+  }
 }

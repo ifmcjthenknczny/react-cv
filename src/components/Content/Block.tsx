@@ -1,4 +1,4 @@
-import styles from './Block.module.scss';
+import styles from './Block.module.scss'
 import React, { ReactNode } from 'react'
 
 const Block = ({ heading, content }: { heading: string, content: string | ReactNode }) => <div className={styles.block}>

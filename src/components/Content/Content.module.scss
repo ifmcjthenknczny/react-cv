@@ -17,3 +17,10 @@ $max-column-width: 47.5%;
     margin-right: 0;
   }
 }
+
+@media print {
+  .content {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

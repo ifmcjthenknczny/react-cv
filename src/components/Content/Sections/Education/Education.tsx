@@ -1,6 +1,7 @@
-import styles from './Education.module.scss'
 import Block from '../../Block'
-import { getData } from 'helpers'
+import React from 'react'
+import { getData } from 'helpers/data'
+import styles from './Education.module.scss'
 
 const { educations } = await getData('Content/Sections/Education')
 

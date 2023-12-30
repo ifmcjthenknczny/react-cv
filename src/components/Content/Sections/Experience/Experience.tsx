@@ -1,6 +1,6 @@
-import Block from "../../Block";
+import Block from '../../Block'
 import React from 'react'
-import { getData } from "../../../../helpers";
+import { getData } from '../../../../helpers/data'
 import styles from './Experience.module.scss'
 
 const { experiences } = await getData('Content/Sections/Experience')

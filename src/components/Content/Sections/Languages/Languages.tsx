@@ -1,9 +1,10 @@
-import Block from "../../Block"
-import styles from './Languages.module.scss'
-import pl from '../../../../assets/pl64.png'
+import Block from '../../Block'
+import React from 'react'
 import gb from '../../../../assets/gb64.png'
+import { getData } from '../../../../helpers/data'
+import pl from '../../../../assets/pl64.png'
+import styles from './Languages.module.scss'
 import unicorn from '../../../../assets/unicorn64.png'
-import { getData } from "../../../../helpers"
 
 const { languages } = await getData('Content/Sections/Languages')
 
@@ -20,7 +21,7 @@ type Language = {
 const LanguagesContent = ({ languages }: { languages: Language[] }) => {
     languages.sort((a, b) => b.description.localeCompare(a.description))
     return <div className={styles.language}>
-    {languages.map((language, index) => <LanguageItem {...language} key={index} />)}</div>
+        {languages.map((language, index) => <LanguageItem {...language} key={index} />)}</div>
 }
 
 const LanguageItem = ({ level, name, description }: Language) => {

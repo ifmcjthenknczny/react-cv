@@ -1,7 +1,10 @@
-import { getData,getPhoto, splitFullName } from '../../helpers'
-import styles from "./Heading.module.scss";
-import Socials from './Socials/Socials';
-import classNames from 'classnames';
+import { getData, getPhoto } from '../../helpers/data'
+
+import React from 'react'
+import Socials from './Socials/Socials'
+import classNames from 'classnames'
+import { splitFullName } from '../../helpers/utils'
+import styles from './Heading.module.scss'
 
 const { name, position } = await getData('Heading')
 const photoUrl = await getPhoto()
