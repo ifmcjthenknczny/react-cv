@@ -14,9 +14,11 @@ $photo-max-width: calc($photo-max-height * 3.5 / 4.5);
 }
 
 .photoContainer {
+  //  fit to the max height of flexbox
   max-height: $photo-max-height;
   max-width: $photo-max-width;
-  //  fit to the max height of flexbox
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .socials {
