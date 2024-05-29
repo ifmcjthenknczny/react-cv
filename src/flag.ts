@@ -1,1 +1,1 @@
-export const REAL_DATA_ENABLED = false
+export const REAL_DATA_ENABLED = true

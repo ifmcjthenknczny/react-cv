@@ -11,6 +11,7 @@ import styles from './Responsibilities.module.scss'
 
 const { companyName, activities } = await getData('Content/Sections/Responsibilities') as { companyName: string; activities: Activity[] }
 
+activities.sort((a,b) => b.percent - a.percent)
 
 const Responsibilities = () => <Block heading={`My Responsibilities (${companyName})`} content={<Chart />} />
 
@@ -21,7 +22,11 @@ type Activity = {
     percent: number
 }
 
-const Chart = () => <div className={styles.content}><div className={styles.chartWrapper}><Doughnut className={styles.chart} data={data} options={config} /></div></div>
+const Chart = () => <div className={styles.content}>
+    <div className={styles.chartWrapper}>
+        <Doughnut className={styles.chart} data={data} options={config} />
+    </div>
+</div>
 
 const config: ChartOptions<'doughnut'> = {
     plugins: {
@@ -37,7 +42,12 @@ const config: ChartOptions<'doughnut'> = {
                 },
             }
         },
-    }
+        datalabels: {
+            formatter: (value: number) => {
+                return `${value}%`
+            }
+        }
+    },
 }
 
 const colors = (opacity: number) => [
@@ -60,7 +70,7 @@ const data = {
             borderColor: colors(1),
             borderWidth: 1,
         },
-    ],
+    ]
 }
 
 export default Responsibilities

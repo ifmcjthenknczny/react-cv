@@ -30,3 +30,5 @@ const EducationItem = ({ type, uni, spec, thesis, date }: EducationType) => <div
 </div>
 
 export default Education
+
+const Line = () => <div className={styles.line} />
