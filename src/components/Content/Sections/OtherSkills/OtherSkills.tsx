@@ -1,11 +1,15 @@
+import React, {useEffect, useState} from 'react'
+
 import Block from '../../Block'
-import React from 'react'
+import { fetchRandomPokemonNames } from './pokemon'
 import { getData } from '../../../../helpers/data'
 import { removeDuplicates } from '../../../../helpers/utils'
 import styles from './OtherSkills.module.scss'
 
 const { tech, excludedTech = [] } = await getData('Content/Sections/OtherSkills')
 
+// highly reccomended to set it to more than 0
+const randomPokemonAddCount = 0
 const LINK = '-'
 
 const OtherSkills = () => <Block heading="Other familiar tech" content={<TechContent tech={tech} />} />
@@ -13,9 +17,23 @@ const OtherSkills = () => <Block heading="Other familiar tech" content={<TechCon
 export default OtherSkills
 
 const TechContent = ({ tech }: { tech: string[] }) => {
-    tech.sort()
+    const [joinedTech, setJoinedTech] = useState(tech)
+    async function addRandomPokemonNames() {
+        if (!randomPokemonAddCount) {
+            return
+        }
+        const randomPokemans = await fetchRandomPokemonNames(randomPokemonAddCount)
+        setJoinedTech([...joinedTech, ...randomPokemans])
+    }
+
+    useEffect(() => {
+        addRandomPokemonNames()
+    }, [])
+
+    joinedTech.sort()
+    console.log(joinedTech)
     return <div className={styles.techContent}>
-        {removeDuplicates(tech, [...excludedTech]).map((t, i) => <span key={i} className={styles.tech}>{normalizeTechName(t)}</span>)}
+        {removeDuplicates(joinedTech, [...excludedTech]).map((t, i) => <span key={i} className={styles.tech}>{normalizeTechName(t)}</span>)}
     </div>
 }
 const normalizeTechName = (techName: string) => `${techName.toLowerCase().split(' ').join(LINK)} `

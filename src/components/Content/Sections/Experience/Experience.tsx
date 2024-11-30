@@ -3,6 +3,8 @@ import React from 'react'
 import { getData } from '../../../../helpers/data'
 import styles from './Experience.module.scss'
 
+// start every bulletpoint of experience with verbs
+
 const { experiences } = await getData('Content/Sections/Experience')
 
 const Experience = () => <Block heading="latest experience" content={<ExperienceContent experiences={experiences} />} />

@@ -24,3 +24,15 @@ export const removeDuplicates = <T>(array: T[], excludeArray: T[]): T[] =>
         (value, index, self) =>
             self.indexOf(value) === index && !excludeArray.includes(value)
     )
+    
+export function shuffle<T>(array: T[]) {
+    let currentIndex = array.length
+      
+    while (currentIndex !== 0) {
+        const randomIndex = Math.floor(Math.random() * currentIndex)
+        currentIndex--;
+      
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]]
+    }
+}
