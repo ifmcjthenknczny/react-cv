@@ -25,7 +25,7 @@ export const removeDuplicates = <T>(array: T[], excludeArray: T[]): T[] =>
             self.indexOf(value) === index && !excludeArray.includes(value)
     )
     
-export function shuffle<T>(array: T[]) {
+export const shuffle = <T>(array: T[]) => {
     let currentIndex = array.length
       
     while (currentIndex !== 0) {
@@ -35,4 +35,11 @@ export function shuffle<T>(array: T[]) {
         [array[currentIndex], array[randomIndex]] = [
             array[randomIndex], array[currentIndex]]
     }
+}
+
+export const capitalizeFirstLetter = (str: string) => {
+    if (!str) {
+        return str
+    }
+    return str.charAt(0).toUpperCase() + str.slice(1)
 }

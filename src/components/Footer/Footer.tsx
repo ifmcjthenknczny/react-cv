@@ -1,4 +1,4 @@
-import { REAL_DATA_ENABLED } from 'flag'
+import { REAL_DATA_ENABLED } from 'dataFlag'
 import React from 'react'
 import styles from './Footer.module.scss'
 

@@ -17,6 +17,7 @@ export const exportToPDF = async () => {
     const cv = document.getElementById('CV')
 
     if (!cv?.innerHTML) {
+        // eslint-disable-next-line no-console
         console.log('No CV element found')
         return
     }
