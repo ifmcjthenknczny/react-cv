@@ -46,6 +46,6 @@ if you want to use your own data.
 
 ## Contact
 
-Your Name - [mcjkon93@gmail.com](mailto:mcjkon93@gmail.com)
+Name - [mcjkon93@gmail.com](mailto:mcjkon93@gmail.com)
 
 Project Link: [https://github.com/ifmcjthenknczny/react-cv](https://github.com/ifmcjthenknczny/react-cv)
