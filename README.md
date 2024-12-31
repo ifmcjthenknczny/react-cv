@@ -44,8 +44,12 @@ if you want to use your own data.
 * Minimize the output.
 * Export the PDF directly to file.
 
+## License
+
+This project is licensed under the MIT License.
+
 ## Contact
 
-Name - [mcjkon93@gmail.com](mailto:mcjkon93@gmail.com)
-
+For questions or feedback, please reach out via GitHub.
+[ifmcjthenknczny](https://github.com/ifmcjthenknczny)
 Project Link: [https://github.com/ifmcjthenknczny/react-cv](https://github.com/ifmcjthenknczny/react-cv)
