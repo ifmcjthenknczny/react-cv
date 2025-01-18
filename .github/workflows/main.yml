@@ -25,3 +25,7 @@ jobs:
             - name: Lint
               run: yarn lint
               timeout-minutes: 5
+
+            - name: Build
+              run: yarn build
+              timeout-minutes: 10
