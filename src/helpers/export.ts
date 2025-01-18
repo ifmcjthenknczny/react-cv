@@ -1,9 +1,9 @@
-import { getData } from './data'
-import jsPDF from 'jspdf'
+// import { getData } from './data'
+// import jsPDF from 'jspdf'
 
 // https://copyprogramming.com/howto/print-webpage-to-pdf-using-javascript-code-example?utm_content=cmp-true
 
-// This function works badly and needs to be change
+// This function works badly and needs to be changed
 
 // export const exportToPDF = async () => {
 //     const { name } = await getData('Heading')

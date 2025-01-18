@@ -1,5 +1,4 @@
-import { REAL_DATA_ENABLED } from '../dataFlag'
+export const getPhoto = async () => (await import(`../assets/photo-${import.meta.env.VITE_REAL_DATA_ENABLED ? 'real' : 'example'}.jpg`)).default
 
-export const getPhoto = async () => (await import(`../assets/photo-${REAL_DATA_ENABLED ? 'real' : 'example'}.jpg`)).default
-
-export const getData = async (module: string) => (await import(`../components/${module}/data-${REAL_DATA_ENABLED ? 'real' : 'example'}`)).default
+export const getData = async (module: string) =>
+     (await import(/* @vite-ignore */`../components/${module}/data-${import.meta.env.VITE_REAL_DATA_ENABLED ? 'real' : 'example'}`)).default

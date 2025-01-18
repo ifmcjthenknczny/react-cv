@@ -2,13 +2,13 @@
 
 ## Description
 
-A React-cv is an interactive project that from provided data creates aesthetic software developer CV. Honestly, I created it because instead of learning LaTeX, I preferred to practise my CSS skills. Project is a HTML-CSS-React-TS template that outputs page of A4 size, ready to be printed to pdf file.
+A React-cv is an interactive project that from provided data creates aesthetic software developer CV. Honestly, I created it because instead of learning LaTeX, I preferred to focus on practising my CSS/React skills. Project is a HTML-CSS-React-TS template that outputs page of A4 size, ready to be printed to pdf file.
 
 ## What you need to know - put briefly
 
 * Clone repo, install packages. Run.
 * Not long after start you will see a print window. Close it if you don't want to print it now.
-* Set boolean in `dataFlag.ts` to `true` if you want to use real data.
+* Duplicate `.env.example` file and change its name to `.env`. Insert `VITE_REAL_DATA_ENABLED=true` if you want to use real data, leave `VITE_REAL_DATA_ENABLED` as `false` if you do not.
 * Change data in every `data-real.ts` file by directory. Observe changes live.
 * `randomPokemonAddCount` in OtherSkills is highly recommended to be increased.
 
@@ -30,9 +30,9 @@ A React-cv is an interactive project that from provided data creates aesthetic s
     npm start
     ```
 
-4. Change the content of `src/dataFlag.ts` into:
+4. Clone file `.env.example`, rename it to `.env` and change its content to:
 ```js
-export const REAL_DATA_ENABLED = false
+VITE_REAL_DATA_ENABLED=false
 ```
 if you want to use your own data.
 
