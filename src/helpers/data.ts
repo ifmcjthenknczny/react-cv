@@ -1,4 +1,4 @@
-import { REAL_DATA_ENABLED } from 'dataFlag'
+import { REAL_DATA_ENABLED } from '../dataFlag'
 
 export const getPhoto = async () => (await import(`../assets/photo-${REAL_DATA_ENABLED ? 'real' : 'example'}.jpg`)).default
 

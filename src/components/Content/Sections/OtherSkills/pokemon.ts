@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { shuffle } from 'helpers/utils'
+import { shuffle } from '../../../../helpers/utils'
 
 const POKEMON_URL = 'https://pokeapi.co/api/v2/pokemon?limit=2137'
 

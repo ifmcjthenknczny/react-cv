@@ -2,7 +2,7 @@ import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontaw
 
 import React from 'react'
 import { Social as SocialType } from '../../../types'
-import { getData } from 'helpers/data'
+import { getData } from '../../../helpers/data'
 import styles from './Socials.module.scss'
 
 const { socials } = (await getData('Heading/Socials')) as { socials: SocialType[] }

@@ -1,7 +1,7 @@
 import Block from '../../Block'
-import DatesFromTo from 'components/Content/Misc/DatesFromTo'
+import DatesFromTo from '../../Misc/DatesFromTo'
 import React from 'react'
-import { getData } from 'helpers/data'
+import { getData } from '../../../../helpers/data'
 import styles from './Education.module.scss'
 
 const { educations } = await getData('Content/Sections/Education')

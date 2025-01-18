@@ -1,6 +1,6 @@
 import Block from '../../Block'
 import React from 'react'
-import { getData } from 'helpers/data'
+import { getData } from '../../../../helpers/data'
 import styles from './Projects.module.scss'
 
 const { projects } = await getData('Content/Sections/Projects')

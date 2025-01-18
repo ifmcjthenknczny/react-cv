@@ -1,5 +1,5 @@
 import Block from '../../Block'
-import DatesFromTo from 'components/Content/Misc/DatesFromTo'
+import DatesFromTo from '../../Misc/DatesFromTo'
 import React from 'react'
 import { getData } from '../../../../helpers/data'
 import styles from './Experience.module.scss'
