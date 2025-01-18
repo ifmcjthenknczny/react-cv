@@ -11,7 +11,15 @@ import styles from './Responsibilities.module.scss'
 
 const { companyName, activities } = await getData('Content/Sections/Responsibilities') as { companyName: string; activities: Activity[] }
 
-activities.sort((a,b) => b.percent - a.percent)
+activities.sort((a, b) => {
+    if (a.label.toLowerCase() === 'other') {
+        return 1
+    }
+    else if (b.label.toLowerCase() === 'other') {
+        return -1
+    }
+    return b.percent - a.percent
+})
 
 const Responsibilities = () => <Block heading={`My Responsibilities (${companyName})`} content={<Chart />} />
 

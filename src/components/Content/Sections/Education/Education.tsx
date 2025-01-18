@@ -1,4 +1,5 @@
 import Block from '../../Block'
+import DatesFromTo from 'components/Content/Misc/DatesFromTo'
 import React from 'react'
 import { getData } from 'helpers/data'
 import styles from './Education.module.scss'
@@ -23,7 +24,7 @@ const EducationItem = ({ type, uni, spec, thesis, date }: EducationType) => <div
             <div className={styles.spec}>{spec}</div>
             <div className={styles.uni}>{uni}</div>
         </div>
-        <div className={styles.date}>{date[0]} - {date[1]}</div>
+        <DatesFromTo className={styles.date} date={date} />
     </div>
     <div className={styles.type}>{type}</div>
     {thesis && <div className={styles.thesis}>Thesis: <span className={styles.thesisTitle}>{thesis}</span></div>}

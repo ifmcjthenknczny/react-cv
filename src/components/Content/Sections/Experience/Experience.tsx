@@ -1,4 +1,5 @@
 import Block from '../../Block'
+import DatesFromTo from 'components/Content/Misc/DatesFromTo'
 import React from 'react'
 import { getData } from '../../../../helpers/data'
 import styles from './Experience.module.scss'
@@ -27,7 +28,7 @@ const ExperienceItem = ({ job, company, date, description }: ExperienceType) => 
             <div className={styles.job}>{job}</div>
             <div className={styles.company}>{company}</div>
         </div>
-        <div className={styles.date}>{date[0]} - {date[1]}</div>
+        <DatesFromTo className={styles.date} date={date} />
     </div>
     {description && <div className={styles.description}><ul>{description.map((line, index) => <li key={index}>{line}</li>)}</ul></div>}
 </div>

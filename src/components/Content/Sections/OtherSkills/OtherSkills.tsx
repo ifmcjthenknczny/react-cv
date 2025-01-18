@@ -9,7 +9,7 @@ import styles from './OtherSkills.module.scss'
 const { tech, excludedTech = [] } = await getData('Content/Sections/OtherSkills')
 
 // highly reccomended to set it to more than 0
-const randomPokemonAddCount = 2
+const randomPokemonAddCount = 0
 const LINK = '-'
 
 const OtherSkills = () => <Block heading="Other familiar tech" content={<TechContent tech={tech} />} />

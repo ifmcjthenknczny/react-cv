@@ -7,7 +7,10 @@
 .techContent {
   max-width: 100%;
   word-wrap: normal;
+  direction: rtl;
   text-align: justify;
+  text-align-last: right;
+  -moz-text-align-last: right;
   line-height: 1.15;
   //   color: darkgray;
 }
