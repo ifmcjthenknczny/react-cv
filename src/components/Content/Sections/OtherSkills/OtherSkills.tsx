@@ -29,7 +29,7 @@ const TechContent = ({ tech }: { tech: string[] }) => {
 
     useEffect(() => {
         addRandomPokemonNames()
-    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+    }, [])
 
     joinedTech.sort()
     return <div className={styles.techContent}>

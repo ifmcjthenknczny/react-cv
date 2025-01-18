@@ -1,4 +1,4 @@
 export const getPhoto = async () => (await import(`../assets/photo-${import.meta.env.VITE_REAL_DATA_ENABLED ? 'real' : 'example'}.jpg`)).default
 
 export const getData = async (module: string) =>
-     (await import(/* @vite-ignore */`../components/${module}/data-${import.meta.env.VITE_REAL_DATA_ENABLED ? 'real' : 'example'}`)).default
+    (await import(/* @vite-ignore */`../components/${module}/data-${import.meta.env.VITE_REAL_DATA_ENABLED ? 'real' : 'example'}`)).default
