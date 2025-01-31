@@ -18,15 +18,16 @@ export type ExperienceType = {
     date: [string, string]
     description: string[]
     shortCompany?: string
+    url?: string
 }
 
 const ExperienceContent = ({ experiences }: { experiences: ExperienceType[] }) => <>{experiences.map(experience => <ExperienceItem key={experience.date[0] + experience.date[1]} {...experience} />)}</>
 
-const ExperienceItem = ({ job, company, date, description }: ExperienceType) => <div className={styles.experienceItem}>
+const ExperienceItem = ({ job, company, date, description, url }: ExperienceType) => <div className={styles.experienceItem}>
     <div className={styles.head}>
         <div>
             <div className={styles.job}>{job}</div>
-            <div className={styles.company}>{company}</div>
+            <div className={styles.company}>{url ? <a href={url}>{company}</a> : company}</div>
         </div>
         <DatesFromTo className={styles.date} date={date} />
     </div>
