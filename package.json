@@ -1,8 +1,16 @@
 {
   "name": "cv-ts",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "author": "Maciej Konieczny",
+  "license": "CC-BY-NC-4.0",
   "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "lint": "npx eslint . --fix"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
@@ -29,12 +37,6 @@
     "sass": "^1.62.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "vite",
-    "build": "vite build",
-    "serve": "vite preview",
-    "lint": "npx eslint . --fix"
   },
   "browserslist": {
     "production": [
