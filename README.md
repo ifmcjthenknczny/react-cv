@@ -18,18 +18,18 @@ A React-cv is an interactive project that from provided data creates aesthetic s
    ```
 2. Install the dependencies in project main directory:
    ```bash
-   npm install
+   yarn install
    ```
 
 ## Usage
 
 3. Go to the main directory of a project and run:
     ```bash
-    npm start
+    yarn start
     ```
 
 4. Clone file `.env.example`, rename it to `.env` and change its content to:
-```js
+```
 VITE_REAL_DATA_ENABLED=false
 ```
 if you want to use your own data.
