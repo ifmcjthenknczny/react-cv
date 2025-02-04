@@ -6,10 +6,12 @@
   "license": "CC-BY-NC-4.0",
   "type": "module",
   "scripts": {
+    "dev": "vite",
     "start": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "lint": "npx eslint . --fix"
+    "lint": "npx eslint .",
+    "fix": "npx eslint . --fix"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",

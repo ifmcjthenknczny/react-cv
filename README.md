@@ -1,5 +1,7 @@
 # React CV
 
+[Deployed page](https://react-cv-ifmcjthenknczny.vercel.app/)
+
 ## Description
 
 A React-cv is an interactive project that from provided data creates aesthetic software developer CV. Honestly, I created it because instead of learning LaTeX, I preferred to focus on practising my CSS/React skills. Project is a HTML-CSS-React-TS template that outputs page of A4 size, ready to be printed to pdf file.
@@ -42,7 +44,7 @@ if you want to use your own data.
 
 * Centralize data input to one editable JSON/.ts file in main directory.
 * Minimize the output.
-* Export the PDF directly to file.
+* Export PDF directly to file.
 
 ## License
 
@@ -51,5 +53,6 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 In
 ## Contact
 
 For questions or feedback, please reach out via GitHub.
-[ifmcjthenknczny](https://github.com/ifmcjthenknczny)
+[ifmcjthenknczny](https://github.com/ifmcjthenknczny)  
+
 Project Link: [https://github.com/ifmcjthenknczny/react-cv](https://github.com/ifmcjthenknczny/react-cv)
