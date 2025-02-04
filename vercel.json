@@ -1,11 +1,22 @@
 {
-    "headers": [
-      {
-        "source": "/components/(.*).js",
-        "headers": [
-          { "key": "Content-Type", "value": "application/javascript" }
-        ]
-      }
-    ]
-  }
-  
+  "headers": [
+    {
+      "source": "/components/**/data-example.*",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/javascript"
+        }
+      ]
+    },
+    {
+      "source": "/components/**/data-real.*",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/javascript"
+        }
+      ]
+    }
+  ]
+}
