@@ -1,0 +1,11 @@
+{
+    "headers": [
+      {
+        "source": "/components/(.*).js",
+        "headers": [
+          { "key": "Content-Type", "value": "application/javascript" }
+        ]
+      }
+    ]
+  }
+  
