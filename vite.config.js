@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(() => {
   return {
+    base: '/',
     build: {
       outDir: 'build',
       target: 'esnext'
@@ -11,6 +12,6 @@ export default defineConfig(() => {
     plugins: [react(), eslint()],
     esbuild: {
         target: 'esnext'
-    }
+    },
   };
 });

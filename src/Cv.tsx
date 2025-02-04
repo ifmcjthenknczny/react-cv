@@ -9,6 +9,9 @@ import styles from './Cv.module.scss'
 const Cv = () => {
     const timesRun = useRef(0)
 
+    // TODO: remove this console.log after production setup is finished
+    console.log(import.meta.env)
+
     useEffect(() => {
         if (timesRun.current === 0) {
             printCV()

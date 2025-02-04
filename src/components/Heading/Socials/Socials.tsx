@@ -1,7 +1,7 @@
 import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome'
 
 import React from 'react'
-import { Social as SocialType } from '../../../types'
+import { Social as SocialType } from './types'
 import { getData } from '../../../helpers/data'
 import styles from './Socials.module.scss'
 
