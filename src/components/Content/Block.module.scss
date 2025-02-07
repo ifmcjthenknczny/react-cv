@@ -1,7 +1,7 @@
 .block {
     display: flex;
     flex-direction: column;
-    margin-bottom: 0.5cm;
+    margin-bottom: 0.4cm;
     text-align: justify;
     width: 100%;
 }
@@ -12,6 +12,10 @@
     font-weight: 700;
     text-transform: uppercase;
     border-bottom: 2px solid black;
+}
+
+.smallHeadingMargin {
+    margin-bottom: 0.2rem !important;
 }
 
 .content {
