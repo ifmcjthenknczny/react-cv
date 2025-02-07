@@ -13,6 +13,7 @@ const KeySkills = () => (
     <Block
         heading="Key technical Skills"
         content={<KeySkillsContent skills={skills} />}
+        smallHeadingMargin
     />
 )
 
