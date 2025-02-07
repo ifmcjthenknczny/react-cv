@@ -41,6 +41,7 @@ if you want to use your own data.
 * Centralize data input to one editable JSON/.ts file in main directory.
 * Minimize the output.
 * Export PDF directly to file.
+* Automate margins to fit A4 page
 
 ## Motivation
 Honestly, I created it because instead of learning LaTe for this one-time project, I preferred to focus on practising my CSS/React skills.
