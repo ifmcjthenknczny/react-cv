@@ -12,19 +12,21 @@ const Cv = () => {
     useEffect(() => {
         if (timesRun.current === 0) {
             printCV()
-            timesRun.current +=1
+            timesRun.current += 1
         }
     }, [])
 
-    return <div id="CV">
-        <div className={styles.curlyBraceUpper}>{'{'}</div>
-        <div className={styles.cv}>
-            <Heading />
-            <Content />
-            <Footer />
+    return (
+        <div id="CV">
+            <div className={styles.curlyBraceUpper}>{'{'}</div>
+            <div className={styles.cv}>
+                <Heading />
+                <Content />
+                <Footer />
+            </div>
+            <div className={styles.curlyBraceDown}>{'}'}</div>
         </div>
-        <div className={styles.curlyBraceDown}>{'}'}</div>
-    </div>
+    )
 }
 
 export default Cv

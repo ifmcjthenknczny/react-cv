@@ -1,6 +1,8 @@
 import keySkillsData from '../KeySkills/data-example'
 
-const keySkillsNames = (keySkillsData.skills as { name: string}[]).map((skill) => skill.name.toLowerCase())
+const keySkillsNames = (keySkillsData.skills as { name: string }[]).map(
+    (skill) => skill.name.toLowerCase()
+)
 
 const data = {
     tech: [
@@ -29,9 +31,9 @@ const data = {
         'EtherealUI',
         'CharmCrafter',
         'MythicalMaps',
-        'WitchcraftAI',
+        'WitchcraftAI'
     ],
-    excludedTech: [...keySkillsNames],
+    excludedTech: [...keySkillsNames]
 }
 
 export default data

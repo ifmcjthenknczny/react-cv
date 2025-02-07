@@ -11,7 +11,8 @@
     "build": "vite build",
     "serve": "vite preview",
     "lint": "npx eslint .",
-    "fix": "npx eslint . --fix"
+    "fix": "npx eslint . --fix",
+    "format": "prettier --write src/"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
@@ -64,6 +65,7 @@
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.1.0",
     "globals": "^15.14.0",
+    "prettier": "^3.4.2",
     "vite": "^6.0.7",
     "vite-plugin-eslint": "^1.8.1"
   }

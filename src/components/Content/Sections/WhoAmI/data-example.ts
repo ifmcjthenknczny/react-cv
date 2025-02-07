@@ -15,7 +15,7 @@ const numberStrings: Record<number, string> = {
     9: 'nine',
     10: 'ten',
     11: 'eleven',
-    12: 'twelve',
+    12: 'twelve'
 }
 
 function buildDateString() {
@@ -54,8 +54,7 @@ function buildHobbiesString() {
 }
 
 const data = {
-    content:
-  `I am a Rainbow Unicorn Enchanter, an alchemist of web technologies, weaving spells of innovation with a palette of rainbow hues. ${capitalizeFirstLetter(buildDateString())}I’ve conjured code that radiates the colors of the rainbow, infusing each project with a touch of unicorn magic. In this journey, I believe that collaboration and the sharing of magical ideas can create wonders beyond imagination. So, that’s me, ready to craft digital enchantments that sparkle with the magic of unicorns and rainbows. My magical rainbow hobbies include ${buildHobbiesString()}.`
+    content: `I am a Rainbow Unicorn Enchanter, an alchemist of web technologies, weaving spells of innovation with a palette of rainbow hues. ${capitalizeFirstLetter(buildDateString())}I’ve conjured code that radiates the colors of the rainbow, infusing each project with a touch of unicorn magic. In this journey, I believe that collaboration and the sharing of magical ideas can create wonders beyond imagination. So, that’s me, ready to craft digital enchantments that sparkle with the magic of unicorns and rainbows. My magical rainbow hobbies include ${buildHobbiesString()}.`
 }
 
 export default data

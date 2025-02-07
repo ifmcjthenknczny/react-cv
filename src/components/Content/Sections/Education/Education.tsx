@@ -6,7 +6,12 @@ import styles from './Education.module.scss'
 
 const { educations } = await getData('Content/Sections/Education')
 
-const Education = () => <Block heading="Education" content={<EducationContent educations={educations} />}></Block>
+const Education = () => (
+    <Block
+        heading="Education"
+        content={<EducationContent educations={educations} />}
+    ></Block>
+)
 
 type EducationType = {
     type: string
@@ -16,19 +21,34 @@ type EducationType = {
     date: [string, string]
 }
 
-const EducationContent = ({ educations }: { educations: EducationType[] }) => <>{educations.map(education => <EducationItem key={education.date[0] + education.date[1]}  {...education} />)}</>
+const EducationContent = ({ educations }: { educations: EducationType[] }) => (
+    <>
+        {educations.map((education) => (
+            <EducationItem
+                key={education.date[0] + education.date[1]}
+                {...education}
+            />
+        ))}
+    </>
+)
 
-const EducationItem = ({ type, uni, spec, thesis, date }: EducationType) => <div className={styles.educationItem}>
-    <div className={styles.head}>
-        <div>
-            <div className={styles.spec}>{spec}</div>
-            <div className={styles.uni}>{uni}</div>
+const EducationItem = ({ type, uni, spec, thesis, date }: EducationType) => (
+    <div className={styles.educationItem}>
+        <div className={styles.head}>
+            <div>
+                <div className={styles.spec}>{spec}</div>
+                <div className={styles.uni}>{uni}</div>
+            </div>
+            <DatesFromTo className={styles.date} date={date} />
         </div>
-        <DatesFromTo className={styles.date} date={date} />
+        <div className={styles.type}>{type}</div>
+        {thesis && (
+            <div className={styles.thesis}>
+                Thesis: <span className={styles.thesisTitle}>{thesis}</span>
+            </div>
+        )}
     </div>
-    <div className={styles.type}>{type}</div>
-    {thesis && <div className={styles.thesis}>Thesis: <span className={styles.thesisTitle}>{thesis}</span></div>}
-</div>
+)
 
 export default Education
 

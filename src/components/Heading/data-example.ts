@@ -1,6 +1,6 @@
 const data = {
     name: 'Oskar Aurora Derpinski',
-    position: 'Rainbow Unicorn Enchanter',
+    position: 'Rainbow Unicorn Enchanter'
 }
 
 export default data

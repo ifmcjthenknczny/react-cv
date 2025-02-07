@@ -13,24 +13,11 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": [
-        "@typescript-eslint",
-        "react",
-        "react-hooks"
-    ],
+    "plugins": ["@typescript-eslint", "react", "react-hooks"],
     "rules": {
-        "indent": [
-            "error",
-            4
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "never"
-        ],
+        "indent": ["error", 4],
+        "quotes": ["error", "single"],
+        "semi": ["error", "never"],
         "no-console": "warn"
     }
 }

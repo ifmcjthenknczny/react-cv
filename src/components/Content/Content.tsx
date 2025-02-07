@@ -9,19 +9,21 @@ import Responsibilities from './Sections/Responsibilities/Responsibilities'
 import WhoAmI from './Sections/WhoAmI/WhoAmI'
 import styles from './Content.module.scss'
 
-const Content = () => <div className={styles.content}>
-    <div className={styles.column}>
-        <WhoAmI />
-        <Experience />
-        <Education />
+const Content = () => (
+    <div className={styles.content}>
+        <div className={styles.column}>
+            <WhoAmI />
+            <Experience />
+            <Education />
+        </div>
+        <div className={styles.column}>
+            <Languages />
+            <KeySkills />
+            <OtherSkills />
+            <Responsibilities />
+            <Projects />
+        </div>
     </div>
-    <div className={styles.column}>
-        <Languages />
-        <KeySkills />
-        <OtherSkills />
-        <Responsibilities />
-        <Projects />
-    </div>
-</div>
+)
 
 export default Content

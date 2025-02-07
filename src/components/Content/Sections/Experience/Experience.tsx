@@ -8,7 +8,12 @@ import styles from './Experience.module.scss'
 
 const { experiences } = await getData('Content/Sections/Experience')
 
-const Experience = () => <Block heading="latest experience" content={<ExperienceContent experiences={experiences} />} />
+const Experience = () => (
+    <Block
+        heading="latest experience"
+        content={<ExperienceContent experiences={experiences} />}
+    />
+)
 
 export default Experience
 
@@ -21,18 +26,46 @@ export type ExperienceType = {
     url?: string
 }
 
-const ExperienceContent = ({ experiences }: { experiences: ExperienceType[] }) => <>{experiences.map(experience => <ExperienceItem key={experience.date[0] + experience.date[1]} {...experience} />)}</>
+const ExperienceContent = ({
+    experiences
+}: {
+    experiences: ExperienceType[]
+}) => (
+    <>
+        {experiences.map((experience) => (
+            <ExperienceItem
+                key={experience.date[0] + experience.date[1]}
+                {...experience}
+            />
+        ))}
+    </>
+)
 
-const ExperienceItem = ({ job, company, date, description, url }: ExperienceType) => <div className={styles.experienceItem}>
-    <div className={styles.head}>
-        <div>
-            <div className={styles.job}>{job}</div>
-            <div className={styles.company}>{url ? <a href={url}>{company}</a> : company}</div>
+const ExperienceItem = ({
+    job,
+    company,
+    date,
+    description,
+    url
+}: ExperienceType) => (
+    <div className={styles.experienceItem}>
+        <div className={styles.head}>
+            <div>
+                <div className={styles.job}>{job}</div>
+                <div className={styles.company}>
+                    {url ? <a href={url}>{company}</a> : company}
+                </div>
+            </div>
+            <DatesFromTo className={styles.date} date={date} />
         </div>
-        <DatesFromTo className={styles.date} date={date} />
+        {description && (
+            <div className={styles.description}>
+                <ul>
+                    {description.map((line, index) => (
+                        <li key={index}>{line}</li>
+                    ))}
+                </ul>
+            </div>
+        )}
     </div>
-    {description && <div className={styles.description}><ul>{description.map((line, index) => <li key={index}>{line}</li>)}</ul></div>}
-</div>
-
-
-
+)
