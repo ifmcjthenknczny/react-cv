@@ -11,7 +11,8 @@ const { tech, excludedTech = [] } = await getData(
 )
 
 // highly reccomended to set it to more than 0
-const randomPokemonAddCount = 0
+const randomPokemonAddCount =
+    import.meta.env.VITE_REAL_DATA_ENABLED === 'true' ? 0 : 6
 const LINK = '-'
 
 const OtherSkills = () => (

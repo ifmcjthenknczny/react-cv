@@ -1,9 +1,11 @@
 import Block from '../../Block'
+import { ExperienceType } from '../Experience/Experience'
 import React from 'react'
 import { getData } from '../../../../helpers/data'
 import styles from './Projects.module.scss'
 
 const { projects } = await getData('Content/Sections/Projects')
+const { experiences } = await getData('Content/Sections/Experience')
 
 const Projects = () => (
     <Block
@@ -11,8 +13,6 @@ const Projects = () => (
         content={<ProjectContent projects={projects} />}
     />
 )
-
-export default Projects
 
 type ProjectType = {
     name: string
@@ -29,12 +29,38 @@ const ProjectContent = ({ projects }: { projects: ProjectType[] }) => (
     </div>
 )
 
+const ProjectOwner = ({
+    ownerName,
+    experiences
+}: {
+    ownerName?: string
+    experiences?: ExperienceType[]
+}) => {
+    if (!ownerName) {
+        return ''
+    }
+
+    const existingExperienceUrl = (experiences || []).filter(
+        (experience) =>
+            experience.company.toLowerCase() === ownerName.toLowerCase()
+    )?.[0].url
+    const ownerTextContent = ` @${ownerName.toLowerCase()}`
+
+    if (existingExperienceUrl) {
+        return <a href={existingExperienceUrl}>{ownerTextContent}</a>
+    }
+
+    return ownerTextContent
+}
+
 const Project = ({ name, link, owner, description }: ProjectType) => (
     <div className={styles.project}>
         <div className={styles.heading}>
             {link ? <a href={link}>{name}</a> : name}
-            {owner ? ` @${owner.toLowerCase()}` : ''}
+            <ProjectOwner ownerName={owner} experiences={experiences} />
         </div>
         <div className={styles.description}>{description}</div>
     </div>
 )
+
+export default Projects

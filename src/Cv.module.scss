@@ -23,7 +23,8 @@ $a4-width: 21cm;
 
 .curlyBraceDown {
     font-size: $brace-size;
-    top: calc($a4-height - $brace-vert-diff - 2 * $padding-vert);
+    // top: calc($a4-height - $brace-vert-diff - 2 * $padding-vert);
+    top: calc($a4-height - $brace-vert-diff - 1.5 * $padding-vert);
     left: $a4-width + $brace-hor-diff + $padding-horiz;
     position: absolute;
 }
