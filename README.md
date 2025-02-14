@@ -25,8 +25,10 @@ A React-cv is an interactive project that from provided data creates aesthetic s
 
 3. Go to the main directory of a project and run:
    ```bash
-   yarn start
+   yarn dev
    ```
+
+   The project should be available at `http://localhost:5173` and you should be able to see changes in real-time.
 
 4. Clone file `.env.example`, rename it to `.env` and change its content to:
    ```javascript
@@ -34,7 +36,7 @@ A React-cv is an interactive project that from provided data creates aesthetic s
    ```
 if you want to use your own data.
 
-5. Change name of every `data-example.ts` to `data-real.ts`. Edit them at your discretion. To edit photo put your photo in `/src/assets` as `photo-real.jpg`.
+5. Change name of every `data-example.ts` to `data-real.ts`. Edit them adding your data you want to be put in resume. To edit photo put your photo in `/src/assets` as `photo-real.jpg`.
 
 ## TODO
 
