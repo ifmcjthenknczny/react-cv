@@ -24,14 +24,14 @@ A React-cv is an interactive project that from provided data creates aesthetic s
 ## Usage
 
 3. Go to the main directory of a project and run:
-    ```bash
-    yarn start
-    ```
+   ```bash
+   yarn start
+   ```
 
 4. Clone file `.env.example`, rename it to `.env` and change its content to:
-```
-VITE_REAL_DATA_ENABLED=false
-```
+   ```javascript
+   VITE_REAL_DATA_ENABLED=false
+   ```
 if you want to use your own data.
 
 5. Change name of every `data-example.ts` to `data-real.ts`. Edit them at your discretion. To edit photo put your photo in `/src/assets` as `photo-real.jpg`.
@@ -44,7 +44,7 @@ if you want to use your own data.
 * Automate margins to fit A4 page
 
 ## Motivation
-Honestly, I created it because instead of learning LaTe for this one-time project, I preferred to focus on practising my CSS/React skills.
+The honest reason I created it is because instead of learning LaTeX for this one-time project I preferred to focus on practising my CSS/React skills.
 
 ## License
 
