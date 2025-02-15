@@ -32,7 +32,7 @@ A React-cv is an interactive project that from provided data creates aesthetic s
 
 4. Clone file `.env.example`, rename it to `.env` and change its content to:
    ```javascript
-   VITE_REAL_DATA_ENABLED=false
+   VITE_REAL_DATA_ENABLED=true
    ```
 if you want to use your own data.
 
