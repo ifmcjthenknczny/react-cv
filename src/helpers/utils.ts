@@ -19,7 +19,7 @@ export const hexToRgba = (hex: string, alpha: number) => {
     return `rgba(${r}, ${g}, ${b}, ${alpha})`
 }
 
-export const removeDuplicates = <T>(array: T[], excludeArray: T[]): T[] =>
+export const removeElements = <T>(array: T[], excludeArray: T[]): T[] =>
     array.filter(
         (value, index, self) =>
             self.indexOf(value) === index && !excludeArray.includes(value)
@@ -43,4 +43,8 @@ export const capitalizeFirstLetter = (str: string) => {
         return str
     }
     return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
+export const removeDuplicates = <T>(arr: T[]) => {
+    return [...new Set(arr)]
 }

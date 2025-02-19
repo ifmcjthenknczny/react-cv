@@ -1,7 +1,7 @@
 .block {
     display: flex;
     flex-direction: column;
-    margin-bottom: 0.4cm;
+    margin-bottom: 0.35cm;
     text-align: justify;
     width: 100%;
 }
@@ -20,4 +20,8 @@
 
 .content {
     font-size: 1rem;
+}
+
+.smallBottomMargin {
+    margin-bottom: 0.2cm !important;
 }

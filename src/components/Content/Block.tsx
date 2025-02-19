@@ -7,10 +7,21 @@ type Props = {
     heading: string
     content: string | ReactNode
     smallHeadingMargin?: true
+    smallBottomMargin?: true
 }
 
-const Block = ({ heading, content, smallHeadingMargin }: Props) => (
-    <div className={styles.block}>
+const Block = ({
+    heading,
+    content,
+    smallHeadingMargin,
+    smallBottomMargin
+}: Props) => (
+    <div
+        className={classNames(
+            styles.block,
+            smallBottomMargin && styles.smallBottomMargin
+        )}
+    >
         <div
             className={classNames(
                 styles.heading,

@@ -12,6 +12,8 @@
         margin-bottom: 0;
     }
     height: 15px;
+    display: flex;
+    flex-direction: row;
 }
 
 .logo {
@@ -19,6 +21,13 @@
     width: auto;
     height: 100%;
     aspect-ratio: 1;
+    z-index: 20;
+}
+
+.logoBackground {
+    background-color: white;
+    z-index: 10;
+    margin-right: 6px;
 }
 
 .name {
@@ -29,7 +38,7 @@
     height: 11px;
     padding-top: 2px;
     padding-bottom: 2px;
-    padding-left: 6px;
+    padding-left: 2px;
     display: flex;
     align-items: center;
     gap: 4px;

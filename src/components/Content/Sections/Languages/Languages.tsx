@@ -12,6 +12,8 @@ const Languages = () => (
     <Block
         heading="Languages"
         content={<LanguagesContent languages={languages} />}
+        smallHeadingMargin
+        smallBottomMargin
     />
 )
 

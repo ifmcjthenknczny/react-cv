@@ -1,5 +1,6 @@
 import Block from '../../Block'
 import React from 'react'
+import classNames from 'classnames'
 import { colord } from 'colord'
 import { determineFontColor } from '../../../../helpers/color'
 import { getData } from '../../../../helpers/data'
@@ -39,6 +40,9 @@ const KeySkill = ({ skill, index }: { skill: SkillType; index: number }) => {
         : skill.color
     return (
         <div className={styles.keySkill}>
+            <div className={classNames(styles.logo, styles.logoBackground)}>
+                <img src={skill.logoUrl} className={styles.logo} />
+            </div>
             <div
                 style={{
                     backgroundColor: computedBackgroundColor,
@@ -52,9 +56,6 @@ const KeySkill = ({ skill, index }: { skill: SkillType; index: number }) => {
                 }}
                 className={styles.keySkillContainer}
             >
-                {skill.logoUrl && (
-                    <img src={skill.logoUrl} className={styles.logo} />
-                )}
                 <span className={styles.name}>{skill.name.toLowerCase()}</span>
             </div>
         </div>
