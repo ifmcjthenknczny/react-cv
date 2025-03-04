@@ -3,15 +3,6 @@ ul {
     margin: 0;
 }
 
-.company {
-    font-weight: 200;
-}
-
-.job {
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
 .experienceItem {
     margin-bottom: 1rem;
     &:last-child {
@@ -21,15 +12,4 @@ ul {
 
 .description {
     font-size: 0.9rem;
-}
-
-.head {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.date {
-    margin-top: 0.075rem;
-    font-size: 0.8rem;
 }

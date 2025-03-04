@@ -69,4 +69,4 @@ const calculateWidth = (
     min: number,
     index: number,
     length: number
-) => max - (max - min) * (index / (length - 1))
+) => max - (max - min) * (index / length - 1)

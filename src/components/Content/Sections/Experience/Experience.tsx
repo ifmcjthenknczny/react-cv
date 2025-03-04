@@ -1,6 +1,6 @@
 import Block from '../../Block'
-import DatesFromTo from '../../Misc/DatesFromTo'
 import React from 'react'
+import TimelineHeading from '../../TimelineHeading'
 import { getData } from '../../../../helpers/data'
 import styles from './Experience.module.scss'
 
@@ -49,15 +49,11 @@ const ExperienceItem = ({
     url
 }: ExperienceType) => (
     <div className={styles.experienceItem}>
-        <div className={styles.head}>
-            <div>
-                <div className={styles.job}>{job}</div>
-                <div className={styles.company}>
-                    {url ? <a href={url}>{company}</a> : company}
-                </div>
-            </div>
-            <DatesFromTo className={styles.date} date={date} />
-        </div>
+        <TimelineHeading
+            primaryContent={job}
+            secondaryContent={url ? <a href={url}>{company}</a> : company}
+            date={date}
+        />
         {description && (
             <div className={styles.description}>
                 <ul>

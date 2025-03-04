@@ -1,6 +1,6 @@
 import Block from '../../Block'
-import DatesFromTo from '../../Misc/DatesFromTo'
 import React from 'react'
+import TimelineHeading from '../../TimelineHeading'
 import { getData } from '../../../../helpers/data'
 import styles from './Education.module.scss'
 
@@ -34,15 +34,13 @@ const EducationContent = ({ educations }: { educations: EducationType[] }) => (
 
 const EducationItem = ({ type, uni, spec, thesis, date }: EducationType) => (
     <div className={styles.educationItem}>
-        <div className={styles.head}>
-            <div>
-                <div className={styles.spec}>{spec}</div>
-                <div className={styles.uni}>{uni}</div>
-            </div>
-            <DatesFromTo className={styles.date} date={date} />
-        </div>
+        <TimelineHeading
+            primaryContent={spec}
+            secondaryContent={uni}
+            date={date}
+        />
         <div className={styles.type}>{type}</div>
-        {thesis && (
+        {!!thesis && (
             <div className={styles.thesis}>
                 Thesis: <span className={styles.thesisTitle}>{thesis}</span>
             </div>
