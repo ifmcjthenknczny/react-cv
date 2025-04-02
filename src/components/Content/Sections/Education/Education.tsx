@@ -34,13 +34,9 @@ const EducationContent = ({ educations }: { educations: EducationType[] }) => (
 
 const EducationItem = ({ type, uni, spec, thesis, date }: EducationType) => (
     <div className={styles.educationItem}>
-        <TimelineHeading
-            primaryContent={spec}
-            secondaryContent={uni}
-            date={date}
-        />
+        <TimelineHeading primaryContent={spec} secondaryContent={uni} date={date} />
         <div className={styles.type}>{type}</div>
-        {!!thesis && (
+        {thesis && (
             <div className={styles.thesis}>
                 Thesis: <span className={styles.thesisTitle}>{thesis}</span>
             </div>
