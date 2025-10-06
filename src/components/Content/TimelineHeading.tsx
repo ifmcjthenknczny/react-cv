@@ -38,7 +38,7 @@ function ElementHeading({ importancy = 'primary', children }: HeadingProps) {
 export default function TimelineHeading({
     primaryContent,
     secondaryContent,
-    date
+    date,
 }: Props) {
     return (
         <div className={styles.head}>
