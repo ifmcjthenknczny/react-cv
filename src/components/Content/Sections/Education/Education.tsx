@@ -24,26 +24,48 @@ type EducationType = {
 }
 
 const EducationContent = ({ educations }: { educations: EducationType[] }) => {
-    return <>
-        {educations.map((education) => {
-            const uniComponent = education.uniUrl ? <a href={education.uniUrl}>{education.uni}</a> : education.uni
+    return (
+        <>
+            {educations.map((education) => {
+                const uniComponent = education.uniUrl ? (
+                    <a href={education.uniUrl}>{education.uni}</a>
+                ) : (
+                    education.uni
+                )
 
-            return <EducationItem
-                key={education.date[0] + education.date[1]}
-                {...education}
-                uni={uniComponent}
-            />
-        })}
-    </>
+                return (
+                    <EducationItem
+                        key={education.date[0] + education.date[1]}
+                        {...education}
+                        uni={uniComponent}
+                    />
+                )
+            })}
+        </>
+    )
 }
 
-const EducationItem = ({ type, uni, spec, thesis, date, thesisUrl }: EducationType) => (
+const EducationItem = ({
+    type,
+    uni,
+    spec,
+    thesis,
+    date,
+    thesisUrl
+}: EducationType) => (
     <div className={styles.educationItem}>
-        <TimelineHeading primaryContent={spec} secondaryContent={uni} date={date} />
+        <TimelineHeading
+            primaryContent={spec}
+            secondaryContent={uni}
+            date={date}
+        />
         <div className={styles.type}>{type}</div>
         {thesis && (
             <div className={styles.thesis}>
-                Thesis: <span className={styles.thesisTitle}>{thesisUrl ? <a href={thesisUrl}>{thesis}</a> : thesis}</span>
+                Thesis:{' '}
+                <span className={styles.thesisTitle}>
+                    {thesisUrl ? <a href={thesisUrl}>{thesis}</a> : thesis}
+                </span>
             </div>
         )}
     </div>
