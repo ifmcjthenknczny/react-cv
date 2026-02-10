@@ -47,21 +47,25 @@ const ExperienceItem = ({
     date,
     description,
     url
-}: ExperienceType) => (
-    <div className={styles.experienceItem}>
+}: ExperienceType) => {
+	const mappedDescription = (description ?? []).map(line => {
+		const trimmedLine = line.trim();
+		return trimmedLine.at(-1) === '.' ? trimmedLine : `${trimmedLine}.`
+	})
+    return <div className={styles.experienceItem}>
         <TimelineHeading
             primaryContent={job}
             secondaryContent={url ? <a href={url}>{company}</a> : company}
             date={date}
         />
-        {description && (
+        {mappedDescription && (
             <div className={styles.description}>
                 <ul>
-                    {description.map((line, index) => (
+                    {mappedDescription.map((line, index) => (
                         <li key={index}>{line}</li>
                     ))}
                 </ul>
             </div>
         )}
     </div>
-)
+}
