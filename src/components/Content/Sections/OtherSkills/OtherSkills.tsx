@@ -12,10 +12,20 @@ const {
     synonyms = []
 } = await getData('Content/Sections/OtherSkills')
 
+const {
+    skills
+} = await getData('Content/Sections/KeySkills')
+
+const allExcludedTech = [...skills.flatMap((skill) => skill.name), ...skills.flatMap((skill) => skill.synonym), ...excludedTech].filter(Boolean).flatMap((tech) => tech.toLowerCase())
+
 // highly reccomended to set it to more than 0
 const randomPokemonAddCount =
-    import.meta.env.VITE_REAL_DATA_ENABLED === 'true' ? 0 : 6
-const LINK = '-'
+    import.meta.env.VITE_RANDOM_POKEMON_ADD_COUNT || 0
+const LINK_SYMBOL = '-'
+
+const normalizeTechName = (techName: string) => {
+    return `${techName.toLowerCase().split(' ').join(LINK_SYMBOL)} `
+}
 
 const OtherSkills = () => (
     <Block
@@ -23,8 +33,6 @@ const OtherSkills = () => (
         content={<TechContent tech={tech} synonyms={synonyms} />}
     />
 )
-
-export default OtherSkills
 
 const TechContent = ({ tech }: { tech: string[]; synonyms: string[] }) => {
     const [joinedTech, setJoinedTech] = useState(
@@ -48,20 +56,20 @@ const TechContent = ({ tech }: { tech: string[]; synonyms: string[] }) => {
     joinedTech.sort()
     return (
         <div className={styles.techContent}>
-            {removeElements(joinedTech, [...excludedTech]).map(
+            {removeElements(joinedTech, [...allExcludedTech]).map(
                 (techName, i) => (
                     <span key={i} className={styles.tech}>
                         {normalizeTechName(techName)}
                     </span>
                 )
             )}
-            {(synonyms as string[]).map((synonym, i) => (
+            {/* {(synonyms as string[]).map((synonym, i) => (
                 <span key={i} className={styles.techSynonym}>
                     {synonym}
                 </span>
-            ))}
+            ))} */}
         </div>
     )
 }
-const normalizeTechName = (techName: string) =>
-    `${techName.toLowerCase().split(' ').join(LINK)} `
+
+export default OtherSkills

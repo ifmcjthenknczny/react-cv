@@ -4,8 +4,7 @@ import React from 'react'
 import { getData } from '../../../../helpers/data'
 import styles from './Projects.module.scss'
 
-const { projects } = await getData('Content/Sections/Projects')
-const { experiences } = await getData('Content/Sections/Experience')
+const { projects, experiences } = await getData('Content/Sections/Projects')
 
 const Projects = () => (
     <Block

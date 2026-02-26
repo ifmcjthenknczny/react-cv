@@ -1,0 +1,84 @@
+{
+  "heading": {
+    "name": "Your Full Name",
+    "position": "Your Job Title"
+  },
+  "socials": [
+    { "type": "map-marker-alt", "label": "City, Country", "url": "https://www.google.com/maps/..." },
+    { "type": "github", "label": "username", "url": "https://github.com/username" },
+    { "type": "envelope", "label": "email@example.com", "url": "mailto:email@example.com" },
+    { "type": "phone", "label": "+00 000 000 000", "url": "tel:+00000000000" },
+    { "type": "linkedin", "label": "username", "url": "https://www.linkedin.com/in/username" }
+  ],
+  "whoAmI": {
+    "content": "A short paragraph about yourself: background, interests, and what you bring to the table."
+  },
+  "experience": {
+    "experiences": [
+      {
+        "job": "Job Title",
+        "company": "Company Name",
+        "date": ["MM/YYYY", "present"],
+        "description": [
+          "First responsibility or achievement.",
+          "Second responsibility or achievement."
+        ],
+        "shortCompany": "Short",
+        "url": "https://company.com"
+      }
+    ]
+  },
+  "education": {
+    "educations": [
+      {
+        "type": "Degree type (e.g. BSc, MSc)",
+        "uni": "University Name",
+        "spec": "Field of study",
+        "thesis": "Thesis title (optional)",
+        "date": ["09/YYYY", "06/YYYY"],
+        "uniUrl": "https://university.edu",
+        "thesisUrl": "https://..."
+      }
+    ]
+  },
+  "languages": {
+    "languages": [
+      { "level": 5, "name": "English", "description": "native" },
+      { "level": 4, "name": "Other", "description": "B2" }
+    ]
+  },
+  "keySkills": {
+    "skills": [
+      {
+        "name": "TypeScript",
+        "logoUrl": "https://example.com/ts.svg",
+        "color": "#3178c6",
+        "fontColor": "#fff",
+        "synonym": ["ts"]
+      }
+    ]
+  },
+  "otherSkills": {
+    "tech": ["Tool A", "Tool B", "Tool C"],
+    "excludedTech": ["typescript", "ts"],
+    "synonyms": ["ts"]
+  },
+  "responsibilities": {
+    "companyName": "Company",
+    "activities": [
+      { "label": "Task A", "percent": 40 },
+      { "label": "Task B", "percent": 30 },
+      { "label": "Other", "percent": 30 }
+    ]
+  },
+  "projects": {
+    "projects": [
+      {
+        "name": "Project Name",
+        "owner": "Company (optional, links to experience)",
+        "description": "Short description.",
+        "link": "https://project.url"
+      }
+    ]
+  }
+}

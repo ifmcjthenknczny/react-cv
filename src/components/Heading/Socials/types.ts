@@ -1,4 +1,10 @@
-import { IconDefinition } from '@fortawesome/free-brands-svg-icons'
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
+
+export type SocialFromData = {
+    type: string
+    label: string
+    url?: string
+}
 
 export type Social = {
     type: IconDefinition

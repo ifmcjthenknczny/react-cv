@@ -33,3 +33,6 @@ photo-real_old.jpg
 
 .serena
 .serena/**
+data.json
+photo.*
+!photo.example.*
