@@ -48,10 +48,10 @@ const ExperienceItem = ({
     description,
     url
 }: ExperienceType) => {
-	const mappedDescription = (description ?? []).map(line => {
-		const trimmedLine = line.trim();
-		return trimmedLine.at(-1) === '.' ? trimmedLine : `${trimmedLine}.`
-	})
+    const mappedDescription = (description ?? []).map(line => {
+        const trimmedLine = line.trim()
+        return trimmedLine.at(-1) === '.' ? trimmedLine : `${trimmedLine}.`
+    })
     return <div className={styles.experienceItem}>
         <TimelineHeading
             primaryContent={job}
