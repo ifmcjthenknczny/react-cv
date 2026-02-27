@@ -10,6 +10,8 @@ const keySkills = await getData('keySkills')
 
 export const OPACITY = 0.7
 
+// PROTIP: recommended to use about 10 key skills
+
 const KeySkills = () => (
     <Block
         heading="Key technical Skills"
@@ -31,9 +33,9 @@ const KeySkill = ({ skill, index }: { skill: PersonalData['keySkills'][number]; 
     const computedBackgroundColor = colord(skill.color ?? '#000000').toHex()
     return (
         <div className={styles.keySkill}>
-            <div className={classNames(styles.logo, styles.logoBackground)}>
+            {skill.logoUrl && <div className={classNames(styles.logo, styles.logoBackground)}>
                 <img src={skill.logoUrl} className={styles.logo} />
-            </div>
+            </div>}
             <div
                 style={{
                     backgroundColor: computedBackgroundColor,

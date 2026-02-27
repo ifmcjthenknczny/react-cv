@@ -1,84 +1,207 @@
 {
   "heading": {
-    "name": "Your Full Name",
-    "position": "Your Job Title"
+    "name": "Oskar Aurora Derpinski",
+    "position": "Rainbow Unicorn Enchanter"
   },
   "socials": [
-    { "type": "map-marker-alt", "label": "City, Country", "url": "https://www.google.com/maps/..." },
-    { "type": "github", "label": "username", "url": "https://github.com/username" },
-    { "type": "envelope", "label": "email@example.com", "url": "mailto:email@example.com" },
-    { "type": "phone", "label": "+00 000 000 000", "url": "tel:+00000000000" },
-    { "type": "linkedin", "label": "username", "url": "https://www.linkedin.com/in/username" }
+    {
+      "type": "map",
+      "label": "Łódź, Poland",
+      "url": "https://www.google.com/maps/place/Pomnik+Jednoro%C5%BCca/@51.7589821,19.4582684,17z/data=!3m1!4b1!4m6!3m5!1s0x471a35e0f85637a7:0xf421c1eaa70e5598!8m2!3d51.7589821!4d19.4582684!16s%2Fg%2F11hyj8p973?entry=ttu"
+    },
+    {
+      "type": "github",
+      "label": "enchantingcoder",
+      "url": "https://github.com/enchantingcoder"
+    },
+    {
+      "type": "email",
+      "label": "rainbowenchanter@unicornmail.com",
+      "url": "mailto:rainbowenchanter@unicornmail.com?subject=Enchanted%20Response%20to%20Your%20CV&body=Dear%20Oskar,%0D%0A%0D%0A"
+    },
+    {
+      "type": "phone",
+      "label": "+48 694 202 137",
+      "url": "tel:+48 694 202 137"
+    },
+    {
+      "type": "linkedin",
+      "label": "rainbowenchanter",
+      "url": "https://www.linkedin.com/in/rainbowenchanter"
+    }
   ],
   "whoAmI": {
-    "content": "A short paragraph about yourself: background, interests, and what you bring to the table."
+    "content": "I am a Rainbow Unicorn Enchanter, an alchemist of web technologies, weaving spells of innovation with a palette of rainbow hues. For over two years now, I've conjured code that radiates the colors of the rainbow, infusing each project with a touch of unicorn magic. In this journey, I believe that collaboration and the sharing of magical ideas can create wonders beyond imagination. So, that's me, ready to craft digital enchantments that sparkle with the magic of unicorns and rainbows. My magical rainbow hobbies include glitter brewing, stardust sculpting and moonbeam painting."
   },
-  "experience": {
-    "experiences": [
-      {
-        "job": "Job Title",
-        "company": "Company Name",
-        "date": ["MM/YYYY", "present"],
-        "description": [
-          "First responsibility or achievement.",
-          "Second responsibility or achievement."
-        ],
-        "shortCompany": "Short",
-        "url": "https://company.com"
-      }
-    ]
-  },
-  "education": {
-    "educations": [
-      {
-        "type": "Degree type (e.g. BSc, MSc)",
-        "uni": "University Name",
-        "spec": "Field of study",
-        "thesis": "Thesis title (optional)",
-        "date": ["09/YYYY", "06/YYYY"],
-        "uniUrl": "https://university.edu",
-        "thesisUrl": "https://..."
-      }
-    ]
-  },
-  "languages": {
-    "languages": [
-      { "level": 5, "name": "English", "description": "native" },
-      { "level": 4, "name": "Other", "description": "B2" }
-    ]
-  },
-  "keySkills": {
-    "skills": [
-      {
-        "name": "TypeScript",
-        "logoUrl": "https://example.com/ts.svg",
-        "color": "#3178c6",
-        "fontColor": "#fff",
-        "synonym": ["ts"]
-      }
-    ]
-  },
+  "experiences": [
+    {
+      "job": "Chief Unicorn Wrangler",
+      "company": "DreamCo",
+      "date": ["03/2023", "now"],
+      "description": [
+        "Led a team of mystical beings in the daily care and management of our unicorn herd.",
+        "Implemented enchanting strategies for rainbow grazing and magical mane grooming.",
+        "Conducted daily unicorn horn inspections to ensure they remained sharp for stardust collection."
+      ],
+      "shortCompany": "DreamCo"
+    },
+    {
+      "job": "Master of Pancake Flipping",
+      "company": "Fluffy Stack Diner",
+      "date": ["01/2022", "02/2023"],
+      "description": [
+        "Achieved pancake perfection through expert flipping techniques and syrup distribution.",
+        "Conducted rigorous research on the ideal pancake-to-butter ratio for maximum deliciousness.",
+        "Hosted 'Pancake Olympics' every weekend, complete with syrup swimming and pancake tossing events."
+      ],
+      "shortCompany": "FSD"
+    },
+    {
+      "job": "Cloud Whisperer",
+      "company": "Skylight Gazing Inc.",
+      "date": ["06/2019", "12/2021"],
+      "description": [
+        "Had heart-to-heart conversations with clouds, convincing them to provide shade on sunny days.",
+        "Specialized in 'Cloud Therapy' for stressed-out cumulonimbus clouds.",
+        "Hosted 'Cloud Talk' podcasts, where clouds shared their meteorological insights."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "type": "MSc in Wizardry Studies (Part-Time)",
+      "uni": "Academy of Advanced Sorcery",
+      "spec": "Potion Mixing",
+      "thesis": "The Art of Conjuring Gummy Frogs and Exploding Sparkles",
+      "date": ["09/2017", "07/2019"]
+    },
+    {
+      "type": "BSc in Potion Brewing",
+      "uni": "School of Witchcraft and Wizardry",
+      "spec": "Magical Elixirs",
+      "thesis": "Bewitching Brews: Crafting Potions That Turn Princes into Frogs",
+      "date": ["09/2013", "06/2017"]
+    }
+  ],
+  "languages": [
+    { "level": 5, "name": "Unicorn", "description": "native" },
+    { "level": 1, "name": "Polish", "description": "A1" },
+    { "level": 3, "name": "English", "description": "B1" }
+  ],
+  "keySkills": [
+    {
+      "name": "Rainbow Sorcery",
+      "color": "#61dafb"
+    },
+    {
+      "name": "Enchanted Coding",
+      "color": "#ff6b81"
+    },
+    {
+      "name": "Mystic Scripting",
+      "color": "#a96de3"
+    },
+    {
+      "name": "Spellbinding Code",
+      "color": "#56c8d8"
+    },
+    {
+      "name": "Magical Data Storage",
+      "color": "#ffb84d"
+    },
+    {
+      "name": "Enchanted Database",
+      "color": "#cc66cc"
+    },
+    {
+      "name": "HTML Enchantment",
+      "color": "#ff99cc"
+    },
+    {
+      "name": "Cloud Therapy & Whispering",
+      "color": "#a2d2ff"
+    },
+    {
+      "name": "Stardust Performance Tuning",
+      "color": "#ffd700"
+    },
+    {
+      "name": "Interspecies Diplomacy",
+      "color": "#b8f2e6"
+    },
+    {
+      "name": "Glitter Infrastructure",
+      "color": "#ef476f"
+    },
+    {
+      "name": "Total Biology",
+      "color": "#06d6a0"
+    }
+  ],
   "otherSkills": {
-    "tech": ["Tool A", "Tool B", "Tool C"],
-    "excludedTech": ["typescript", "ts"],
-    "synonyms": ["ts"]
+    "tech": [
+      "Wand.js",
+      "BroomstickDB",
+      "EnchantedIDE",
+      "SpellCheckAI",
+      "CauldronDB",
+      "WizardCI/CD",
+      "CrystalBall",
+      "Wandify",
+      "PotionX",
+      "Unicornize",
+      "MystiLint",
+      "CrystalAnalytics",
+      "ElixirMagic",
+      "SparkleJS",
+      "MagicScript",
+      "WitchyML",
+      "RainbowMage",
+      "EnchantedForestVR",
+      "MagicWand SDK",
+      "ArcaneSpells API",
+      "WizardlyBot",
+      "EtherealUI",
+      "CharmCrafter",
+      "MythicalMaps",
+      "WitchcraftAI"
+    ],
+    "excludedTech": [
+      "rainbow sorcery",
+      "enchanted coding",
+      "mystic scripting",
+      "spellbinding code",
+      "magical data storage",
+      "enchanted database",
+      "html enchantment"
+    ],
+    "synonyms": ["magicwandsdk", "sparkle.js"]
   },
   "responsibilities": {
-    "companyName": "Company",
+    "companyName": "DreamCo",
     "activities": [
-      { "label": "Task A", "percent": 40 },
-      { "label": "Task B", "percent": 30 },
-      { "label": "Other", "percent": 30 }
+      { "label": "Inventing new spells", "percent": 35 },
+      { "label": "Unicorn grooming", "percent": 25 },
+      { "label": "Rainbow mediating", "percent": 20 },
+      { "label": "Herding invisible ones", "percent": 10 },
+      { "label": "Sharpening horns", "percent": 5 },
+      { "label": "Teaching moonwalk", "percent": 5 }
     ]
   },
-  "projects": {
-    "projects": [
-      {
-        "name": "Project Name",
-        "owner": "Company (optional, links to experience)",
-        "description": "Short description.",
-        "link": "https://project.url"
-      }
-    ]
-  }
+  "projects": [
+    {
+      "name": "Rainbow Portal App",
+      "description": "Created a captivating mobile app allowing users to explore fantastical realms through a rainbow portal, encountering unicorns, fairies, and endless adventures."
+    },
+    {
+      "name": "Enchanted Unicorn Quest",
+      "owner": "DreamCo",
+      "description": "Led the 'Enchanted Unicorn Quest' project, rescuing unicorns and restoring rainbow colors with wizardly skills, showcasing my talent in crafting immersive experiences."
+    },
+    {
+      "name": "Unicorn Parade Website",
+      "owner": "DreamCo",
+      "description": "Designed an enchanting website inviting users to join virtual unicorn parades and share mythical stories, demonstrating my commitment to engaging online experiences."
+    }
+  ]
 }
