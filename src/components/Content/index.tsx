@@ -1,4 +1,4 @@
-import Education from './Sections/Education/Education'
+import Education from './Sections/Education'
 import Experience from './Sections/Experience'
 import KeySkills from './Sections/KeySkills'
 import Languages from './Sections/Languages'

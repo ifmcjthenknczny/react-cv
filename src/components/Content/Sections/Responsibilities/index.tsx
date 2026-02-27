@@ -8,7 +8,7 @@ import {
     Tooltip
 } from 'chart.js'
 
-import Block from '../../Block'
+import Block from '../../../utils/Block'
 import { Doughnut } from 'react-chartjs-2'
 import { OPACITY } from '../KeySkills'
 import React from 'react'

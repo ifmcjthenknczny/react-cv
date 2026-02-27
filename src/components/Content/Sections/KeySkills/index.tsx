@@ -1,4 +1,4 @@
-import Block from '../../Block'
+import Block from '../../../utils/Block'
 import React from 'react'
 import classNames from 'classnames'
 import { colord } from 'colord'

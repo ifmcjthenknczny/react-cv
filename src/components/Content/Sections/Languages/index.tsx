@@ -1,4 +1,4 @@
-import Block from '../../Block'
+import Block from '../../../utils/Block'
 import React from 'react'
 import gb from '../../../../assets/gb64.png'
 import { getData, PersonalData } from '../../../../helpers/data'

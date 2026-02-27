@@ -1,8 +1,8 @@
-import Block from '../../Block'
+import Block from '../../../utils/Block'
 import React from 'react'
-import TimelineHeading from '../../TimelineHeading'
+import TimelineHeading from '../../../utils/TimelineHeading'
 import { getData, PersonalData } from '../../../../helpers/data'
-import styles from './Education.module.scss'
+import styles from './index.module.scss'
 
 const education = await getData('education')
 

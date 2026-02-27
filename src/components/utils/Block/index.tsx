@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 
 import classNames from 'classnames'
-import styles from './Block.module.scss'
+import styles from './index.module.scss'
 
 type Props = {
     heading: string
