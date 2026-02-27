@@ -1,7 +1,7 @@
 import Block from '../../Block'
 import React from 'react'
 import { getData } from '../../../../helpers/data'
-import styles from './WhoAmI.module.scss'
+import styles from './index.module.scss'
 
 const { content } = await getData('whoAmI')
 

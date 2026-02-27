@@ -8,6 +8,7 @@ A React-cv is an interactive project that from provided data creates aesthetic s
 * Not long after start you will see a print window. Close it if you don't want to print it now.
 * Edit `data.json` in the project root (see `data.example.json` for structure). Put your photo in `assets/photo.jpg` and set `"photo": "/photo.jpg"` in the heading section.
 * `randomPokemonAddCount` in OtherSkills is highly recommended to be increased when using your own data.
+* Works best with Firefox.
 
 ## Installation
 

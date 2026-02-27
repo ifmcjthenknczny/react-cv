@@ -1,7 +1,7 @@
 import Block from '../../Block'
 import React from 'react'
 import { getData } from '../../../../helpers/data'
-import styles from './Projects.module.scss'
+import styles from './index.module.scss'
 import { PersonalData } from '../../../../helpers/data'
 
 const projects = await getData('projects')

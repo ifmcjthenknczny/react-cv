@@ -10,10 +10,10 @@ import {
 
 import Block from '../../Block'
 import { Doughnut } from 'react-chartjs-2'
-import { OPACITY } from '../KeySkills/KeySkills'
+import { OPACITY } from '../KeySkills'
 import React from 'react'
 import { getData } from '../../../../helpers/data'
-import styles from './Responsibilities.module.scss'
+import styles from './index.module.scss'
 
 const { companyName, activities } = (await getData(
     'responsibilities'

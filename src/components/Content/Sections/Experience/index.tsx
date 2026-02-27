@@ -2,7 +2,7 @@ import Block from '../../Block'
 import React from 'react'
 import TimelineHeading from '../../TimelineHeading'
 import { getData, PersonalData } from '../../../../helpers/data'
-import styles from './Experience.module.scss'
+import styles from './index.module.scss'
 
 // PROTIP: start every bulletpoint of experience with verbs
 

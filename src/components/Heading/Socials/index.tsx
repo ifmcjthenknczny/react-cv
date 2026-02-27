@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { getData, PersonalData } from '../../../helpers/data'
 import { getSocialIcon } from './iconMap'
-import styles from './Socials.module.scss'
+import styles from './index.module.scss'
 
 const socials = await getData('socials')
 

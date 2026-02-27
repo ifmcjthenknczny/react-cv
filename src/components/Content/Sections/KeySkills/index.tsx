@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import { colord } from 'colord'
 import { determineFontColor } from '../../../../helpers/color'
 import { getData, PersonalData } from '../../../../helpers/data'
-import styles from './KeySkills.module.scss'
+import styles from './index.module.scss'
 
 const keySkills = await getData('keySkills')
 
@@ -27,9 +27,8 @@ const KeySkillsContent = ({ skills }: { skills: PersonalData['keySkills'] }) => 
 )
 
 const KeySkill = ({ skill, index }: { skill: PersonalData['keySkills'][number]; index: number }) => {
-    const computedBackgroundColor = skill.logoUrl
-        ? colord(skill.color ?? '#000000').darken(0).toHex()
-        : skill.color
+    // TODO: i use colord library in case of darkening the color, but it's not necessary
+    const computedBackgroundColor = colord(skill.color ?? '#000000').toHex()
     return (
         <div className={styles.keySkill}>
             <div className={classNames(styles.logo, styles.logoBackground)}>

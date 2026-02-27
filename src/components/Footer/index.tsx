@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Footer.module.scss'
+import styles from './index.module.scss'
 
 const USE_LLM_GREETINGS = !!import.meta.env.VITE_REPLACE_MESSAGE
 

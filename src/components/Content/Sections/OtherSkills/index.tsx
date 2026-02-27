@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 
 import Block from '../../Block'
-import { fetchRandomPokemonNames } from './pokemon'
+import { fetchRandomPokemonNames } from '../../../../helpers/pokemon'
 import { getData } from '../../../../helpers/data'
 import { removeElements } from '../../../../helpers/utils'
-import styles from './OtherSkills.module.scss'
+import styles from './index.module.scss'
 
 const {
     tech,
