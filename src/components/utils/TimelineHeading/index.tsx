@@ -1,14 +1,15 @@
 import React, { PropsWithChildren } from 'react'
 
 import classNames from 'classnames'
-import styles from './TimelineHeading.module.scss'
+import styles from './index.module.scss'
+import { DateRange } from '@helpers/data'
 
 type HeadingProps = PropsWithChildren<{
     importancy?: 'primary' | 'secondary'
 }>
 
 type DateProps = {
-    date: [string, string]
+    date: DateRange
 }
 
 type Props = {

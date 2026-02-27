@@ -1,32 +1,26 @@
-import Block from '../../Block'
+import Block from '../../../utils/Block'
 import React from 'react'
 import classNames from 'classnames'
 import { colord } from 'colord'
-import { determineFontColor } from '../../../../helpers/color'
-import { getData } from '../../../../helpers/data'
-import styles from './KeySkills.module.scss'
+import { determineFontColor } from '@helpers/color'
+import { getData, PersonalData } from '@helpers/data'
+import styles from './index.module.scss'
 
-const { skills } = await getData('Content/Sections/KeySkills')
+const keySkills = await getData('keySkills')
 
 export const OPACITY = 0.7
+
+// PROTIP: recommended to use about 10 key skills
 
 const KeySkills = () => (
     <Block
         heading="Key technical Skills"
-        content={<KeySkillsContent skills={skills} />}
+        content={<KeySkillsContent skills={keySkills} />}
         smallHeadingMargin
     />
 )
 
-export type SkillType = {
-    name: string
-    logoUrl: string
-    color: string
-    width?: number // 0 - 100
-    fontColor?: string
-}
-
-const KeySkillsContent = ({ skills }: { skills: SkillType[] }) => (
+const KeySkillsContent = ({ skills }: { skills: PersonalData['keySkills'] }) => (
     <div className={styles.keySkills}>
         {skills.map((skill, i) => (
             <KeySkill key={i} skill={skill} index={i} />
@@ -34,15 +28,14 @@ const KeySkillsContent = ({ skills }: { skills: SkillType[] }) => (
     </div>
 )
 
-const KeySkill = ({ skill, index }: { skill: SkillType; index: number }) => {
-    const computedBackgroundColor = skill.logoUrl
-        ? colord(skill.color).darken(0).toHex()
-        : skill.color
+const KeySkill = ({ skill, index }: { skill: PersonalData['keySkills'][number]; index: number }) => {
+    // TODO: i use colord library in case of darkening the color, but it's not necessary
+    const computedBackgroundColor = colord(skill.color ?? '#000000').toHex()
     return (
         <div className={styles.keySkill}>
-            <div className={classNames(styles.logo, styles.logoBackground)}>
+            {skill.logoUrl && <div className={classNames(styles.logo, styles.logoBackground)}>
                 <img src={skill.logoUrl} className={styles.logo} />
-            </div>
+            </div>}
             <div
                 style={{
                     backgroundColor: computedBackgroundColor,
@@ -52,7 +45,7 @@ const KeySkill = ({ skill, index }: { skill: SkillType; index: number }) => {
                         determineFontColor(
                             computedBackgroundColor ?? '#ffffff'
                         ),
-                    width: `${calculateWidth(95, 80, index, skills.length)}%`
+                    width: `${calculateWidth(95, 80, index, keySkills.length)}%`
                 }}
                 className={styles.keySkillContainer}
             >

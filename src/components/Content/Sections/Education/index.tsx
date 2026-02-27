@@ -1,29 +1,19 @@
-import Block from '../../Block'
+import Block from '../../../utils/Block'
 import React from 'react'
-import TimelineHeading from '../../TimelineHeading'
-import { getData } from '../../../../helpers/data'
-import styles from './Education.module.scss'
+import TimelineHeading from '../../../utils/TimelineHeading'
+import { getData, PersonalData } from '@helpers/data'
+import styles from './index.module.scss'
 
-const { educations } = await getData('Content/Sections/Education')
+const education = await getData('education')
 
 const Education = () => (
     <Block
         heading="Education"
-        content={<EducationContent educations={educations} />}
+        content={<EducationContent educations={education} />}
     ></Block>
 )
 
-type EducationType = {
-    type: string
-    uni: string | React.ReactNode
-    spec: string
-    thesis?: string
-    date: [string, string]
-    uniUrl?: string
-    thesisUrl?: string
-}
-
-const EducationContent = ({ educations }: { educations: EducationType[] }) => {
+const EducationContent = ({ educations }: { educations: PersonalData['education'] }) => {
     return (
         <>
             {educations.map((education) => {
@@ -52,7 +42,7 @@ const EducationItem = ({
     thesis,
     date,
     thesisUrl
-}: EducationType) => (
+}: PersonalData['education'][number]) => (
     <div className={styles.educationItem}>
         <TimelineHeading
             primaryContent={spec}

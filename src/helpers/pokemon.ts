@@ -1,7 +1,7 @@
 import axios from 'axios'
-import { shuffle } from '../../../../helpers/utils'
+import { shuffle } from './utils'
 
-const POKEMON_URL = 'https://pokeapi.co/api/v2/pokemon?limit=2137'
+const POKEMON_API_URL = 'https://pokeapi.co/api/v2/pokemon?limit=2137'
 
 type PokemonApiResponse = {
     count: number
@@ -13,7 +13,7 @@ type PokemonApiResponse = {
 export async function fetchRandomPokemonNames(count: number) {
     try {
         const pokemons = (
-            await axios.get<PokemonApiResponse>(POKEMON_URL)
+            await axios.get<PokemonApiResponse>(POKEMON_API_URL)
         ).data.results.map((p) => p.name)
         shuffle(pokemons)
         return pokemons.slice(0, count)

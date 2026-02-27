@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react'
 
-import Content from './components/Content/Content'
-import Footer from './components/Footer/Footer'
-import Heading from './components/Heading/Heading'
-import { printCV } from './helpers/export'
+import Content from './components/Content'
+import Footer from './components/Footer'
+import Heading from './components/Heading'
+import { printCV } from '@helpers/export'
 import styles from './Cv.module.scss'
 
 const Cv = () => {
