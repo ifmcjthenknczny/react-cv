@@ -9,14 +9,13 @@ import styles from './OtherSkills.module.scss'
 const {
     tech,
     excludedTech = [],
-    synonyms = []
-} = await getData('Content/Sections/OtherSkills')
+    synonyms,
+    potential
+} = await getData('otherSkills')
 
-const {
-    skills
-} = await getData('Content/Sections/KeySkills')
+const keySkills = await getData('keySkills')
 
-const allExcludedTech = [...skills.flatMap((skill) => skill.name), ...skills.flatMap((skill) => skill.synonym), ...excludedTech].filter(Boolean).flatMap((tech) => tech.toLowerCase())
+const allExcludedTech = [...keySkills.flatMap((skill) => skill.name), ...keySkills.flatMap((skill) => skill.synonym), ...(excludedTech ?? [])].filter(Boolean).flatMap((tech) => tech!.toLowerCase())
 
 // highly reccomended to set it to more than 0
 const randomPokemonAddCount =
@@ -30,11 +29,11 @@ const normalizeTechName = (techName: string) => {
 const OtherSkills = () => (
     <Block
         heading="Other familiar tech"
-        content={<TechContent tech={tech} synonyms={synonyms} />}
+        content={<TechContent tech={tech} synonyms={synonyms} potential={potential} />}
     />
 )
 
-const TechContent = ({ tech }: { tech: string[]; synonyms: string[] }) => {
+const TechContent = ({ tech }: { tech: string[]; synonyms?: string[], potential?: string[] }) => {
     const [joinedTech, setJoinedTech] = useState(
         tech.map((t) => t.toLocaleLowerCase())
     )
@@ -63,11 +62,11 @@ const TechContent = ({ tech }: { tech: string[]; synonyms: string[] }) => {
                     </span>
                 )
             )}
-            {/* {(synonyms as string[]).map((synonym, i) => (
+            {([...(synonyms ?? []), ...(potential ?? [])]).map((name, i) => (
                 <span key={i} className={styles.techSynonym}>
-                    {synonym}
+                    {name}
                 </span>
-            ))} */}
+            ))}
         </div>
     )
 }

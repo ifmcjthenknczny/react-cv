@@ -16,8 +16,8 @@ import { getData } from '../../../../helpers/data'
 import styles from './Responsibilities.module.scss'
 
 const { companyName, activities } = (await getData(
-    'Content/Sections/Responsibilities'
-)) as { companyName: string; activities: Activity[] }
+    'responsibilities'
+))
 
 activities.sort((a, b) => {
     if (a.label.toLowerCase() === 'other') {
@@ -36,11 +36,6 @@ const Responsibilities = () => (
 )
 
 ChartJS.register(ArcElement, Legend, Tooltip)
-
-type Activity = {
-    label: string
-    percent: number
-}
 
 const Chart = () => (
     <div className={styles.content}>

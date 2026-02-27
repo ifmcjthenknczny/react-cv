@@ -1,12 +1,12 @@
 import Block from '../../Block'
 import React from 'react'
 import gb from '../../../../assets/gb64.png'
-import { getData } from '../../../../helpers/data'
+import { getData, PersonalData } from '../../../../helpers/data'
 import pl from '../../../../assets/pl64.png'
 import styles from './Languages.module.scss'
 import unicorn from '../../../../assets/unicorn64.png'
 
-const { languages } = await getData('Content/Sections/Languages')
+const languages = await getData('languages')
 
 const Languages = () => (
     <Block
@@ -17,15 +17,7 @@ const Languages = () => (
     />
 )
 
-export default Languages
-
-type Language = {
-    level: 1 | 2 | 3 | 4 | 5
-    name: string
-    description: string
-}
-
-const LanguagesContent = ({ languages }: { languages: Language[] }) => {
+const LanguagesContent = ({ languages }: { languages: PersonalData['languages'] }) => {
     languages.sort((a, b) => b.description.localeCompare(a.description))
     return (
         <div className={styles.language}>
@@ -36,7 +28,7 @@ const LanguagesContent = ({ languages }: { languages: Language[] }) => {
     )
 }
 
-const LanguageItem = ({ level, name, description }: Language) => {
+const LanguageItem = ({ level, name, description }: PersonalData['languages'][number]) => {
     const size = `${Math.sqrt(level) / 2}cm`
     return (
         <div className={styles.languageItem}>
@@ -44,7 +36,7 @@ const LanguageItem = ({ level, name, description }: Language) => {
                 className={styles.imageWrapper}
                 style={{ height: size, width: size }}
             >
-                <img className={styles.level} src={flags[name]} alt="" />
+                <img className={styles.level} src={flagsMap[name]} alt="" />
             </div>
             <div className={styles.text}>
                 <div className={styles.languageName}>{name}</div>
@@ -54,8 +46,10 @@ const LanguageItem = ({ level, name, description }: Language) => {
     )
 }
 
-const flags: Record<Language['name'], string> = {
+const flagsMap: Record<PersonalData['languages'][number]['name'], string> = {
     Polish: pl,
     English: gb,
     Unicorn: unicorn
 }
+
+export default Languages

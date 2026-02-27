@@ -1,14 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import React from 'react'
-import { getData } from '../../../helpers/data'
+import { getData, PersonalData } from '../../../helpers/data'
 import { getSocialIcon } from './iconMap'
-import { SocialFromData } from './types'
 import styles from './Socials.module.scss'
 
-const { socials } = (await getData('Heading/Socials')) as {
-    socials: SocialFromData[]
-}
+const socials = await getData('socials')
 
 const Socials = () => (
     <div className={styles.socials}>
@@ -18,7 +15,7 @@ const Socials = () => (
     </div>
 )
 
-const Social = ({ type, label, url }: SocialFromData) => {
+const Social = ({ type, label, url }: PersonalData['socials'][number]) => {
     const icon = getSocialIcon(type)
     if (url) {
         return (

@@ -1,10 +1,11 @@
 import Block from '../../Block'
-import { ExperienceType } from '../Experience/Experience'
 import React from 'react'
 import { getData } from '../../../../helpers/data'
 import styles from './Projects.module.scss'
+import { PersonalData } from '../../../../helpers/data'
 
-const { projects, experiences } = await getData('Content/Sections/Projects')
+const projects = await getData('projects')
+const experiences = await getData('experiences')
 
 const Projects = () => (
     <Block
@@ -13,14 +14,9 @@ const Projects = () => (
     />
 )
 
-type ProjectType = {
-    name: string
-    owner?: string
-    description: string
-    link?: string
-}
 
-const ProjectContent = ({ projects }: { projects: ProjectType[] }) => (
+
+const ProjectContent = ({ projects }: { projects: PersonalData['projects'] }) => (
     <div className={styles.projects}>
         {projects.map((project, index) => (
             <Project key={index} {...project} />
@@ -33,7 +29,7 @@ const ProjectOwner = ({
     experiences
 }: {
     ownerName?: string
-    experiences?: ExperienceType[]
+    experiences?: PersonalData['experiences']
 }) => {
     if (!ownerName) {
         return ''
@@ -52,7 +48,7 @@ const ProjectOwner = ({
     return ownerTextContent
 }
 
-const Project = ({ name, link, owner, description }: ProjectType) => (
+const Project = ({ name, link, owner, description }: PersonalData['projects'][number]) => (
     <div className={styles.project}>
         <div className={styles.heading}>
             {link ? <a href={link}>{name}</a> : name}

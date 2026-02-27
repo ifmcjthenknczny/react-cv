@@ -3,30 +3,22 @@ import React from 'react'
 import classNames from 'classnames'
 import { colord } from 'colord'
 import { determineFontColor } from '../../../../helpers/color'
-import { getData } from '../../../../helpers/data'
+import { getData, PersonalData } from '../../../../helpers/data'
 import styles from './KeySkills.module.scss'
 
-const { skills } = await getData('Content/Sections/KeySkills')
+const keySkills = await getData('keySkills')
 
 export const OPACITY = 0.7
 
 const KeySkills = () => (
     <Block
         heading="Key technical Skills"
-        content={<KeySkillsContent skills={skills} />}
+        content={<KeySkillsContent skills={keySkills} />}
         smallHeadingMargin
     />
 )
 
-export type SkillType = {
-    name: string
-    logoUrl: string
-    color: string
-    width?: number // 0 - 100
-    fontColor?: string
-}
-
-const KeySkillsContent = ({ skills }: { skills: SkillType[] }) => (
+const KeySkillsContent = ({ skills }: { skills: PersonalData['keySkills'] }) => (
     <div className={styles.keySkills}>
         {skills.map((skill, i) => (
             <KeySkill key={i} skill={skill} index={i} />
@@ -34,9 +26,9 @@ const KeySkillsContent = ({ skills }: { skills: SkillType[] }) => (
     </div>
 )
 
-const KeySkill = ({ skill, index }: { skill: SkillType; index: number }) => {
+const KeySkill = ({ skill, index }: { skill: PersonalData['keySkills'][number]; index: number }) => {
     const computedBackgroundColor = skill.logoUrl
-        ? colord(skill.color).darken(0).toHex()
+        ? colord(skill.color ?? '#000000').darken(0).toHex()
         : skill.color
     return (
         <div className={styles.keySkill}>
@@ -52,7 +44,7 @@ const KeySkill = ({ skill, index }: { skill: SkillType; index: number }) => {
                         determineFontColor(
                             computedBackgroundColor ?? '#ffffff'
                         ),
-                    width: `${calculateWidth(95, 80, index, skills.length)}%`
+                    width: `${calculateWidth(95, 80, index, keySkills.length)}%`
                 }}
                 className={styles.keySkillContainer}
             >

@@ -1,12 +1,12 @@
 import Block from '../../Block'
 import React from 'react'
 import TimelineHeading from '../../TimelineHeading'
-import { getData } from '../../../../helpers/data'
+import { getData, PersonalData } from '../../../../helpers/data'
 import styles from './Experience.module.scss'
 
-// start every bulletpoint of experience with verbs
+// PROTIP: start every bulletpoint of experience with verbs
 
-const { experiences } = await getData('Content/Sections/Experience')
+const experiences = await getData('experiences')
 
 const Experience = () => (
     <Block
@@ -15,21 +15,10 @@ const Experience = () => (
     />
 )
 
-export default Experience
-
-export type ExperienceType = {
-    job: string
-    company: string
-    date: [string, string]
-    description: string[]
-    shortCompany?: string
-    url?: string
-}
-
 const ExperienceContent = ({
     experiences
 }: {
-    experiences: ExperienceType[]
+    experiences: PersonalData['experiences']
 }) => (
     <>
         {experiences.map((experience) => (
@@ -47,7 +36,7 @@ const ExperienceItem = ({
     date,
     description,
     url
-}: ExperienceType) => {
+}: PersonalData['experiences'][number]) => {
     const mappedDescription = (description ?? []).map(line => {
         const trimmedLine = line.trim()
         return trimmedLine.at(-1) === '.' ? trimmedLine : `${trimmedLine}.`
@@ -69,3 +58,5 @@ const ExperienceItem = ({
         )}
     </div>
 }
+
+export default Experience

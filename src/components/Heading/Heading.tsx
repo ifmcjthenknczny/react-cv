@@ -6,7 +6,7 @@ import classNames from 'classnames'
 import { splitFullName } from '../../helpers/utils'
 import styles from './Heading.module.scss'
 
-const { name, position } = await getData('Heading')
+const { name, position } = await getData('heading')
 const photoUrl = await getPhoto()
 
 const Heading = () => (
