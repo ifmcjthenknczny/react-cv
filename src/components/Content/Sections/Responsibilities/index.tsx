@@ -12,7 +12,7 @@ import Block from '../../../utils/Block'
 import { Doughnut } from 'react-chartjs-2'
 import { OPACITY } from '../KeySkills'
 import React from 'react'
-import { getData } from '../../../../helpers/data'
+import { getData } from '@helpers/data'
 import styles from './index.module.scss'
 
 const { companyName, activities } = (await getData(

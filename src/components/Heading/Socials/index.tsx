@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import React from 'react'
-import { getData, PersonalData } from '../../../helpers/data'
+import { getData, PersonalData } from '@helpers/data'
 import { getSocialIcon } from './iconMap'
 import styles from './index.module.scss'
-import { splitFullName } from '../../../helpers/utils'
+import { splitFullName } from '@helpers/utils'
 
 const socials = await getData('socials')
 const { name: fullName } = await getData('heading')

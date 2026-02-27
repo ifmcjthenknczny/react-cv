@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import Content from './components/Content'
 import Footer from './components/Footer'
 import Heading from './components/Heading'
-import { printCV } from './helpers/export'
+import { printCV } from '@helpers/export'
 import styles from './Cv.module.scss'
 
 const Cv = () => {

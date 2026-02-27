@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
 import Block from '../../../utils/Block'
-import { fetchRandomPokemonNames } from '../../../../helpers/pokemon'
-import { getData } from '../../../../helpers/data'
-import { removeElements } from '../../../../helpers/utils'
+import { fetchRandomPokemonNames } from '@helpers/pokemon'
+import { getData } from '@helpers/data'
+import { removeElements } from '@helpers/utils'
 import styles from './index.module.scss'
 
 const {

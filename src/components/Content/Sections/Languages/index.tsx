@@ -1,7 +1,7 @@
 import Block from '../../../utils/Block'
 import React from 'react'
 import gb from '../../../../assets/gb64.png'
-import { getData, PersonalData } from '../../../../helpers/data'
+import { getData, PersonalData } from '@helpers/data'
 import pl from '../../../../assets/pl64.png'
 import styles from './index.module.scss'
 import unicorn from '../../../../assets/unicorn64.png'

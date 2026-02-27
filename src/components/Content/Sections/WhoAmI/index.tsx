@@ -1,6 +1,6 @@
 import Block from '../../../utils/Block'
 import React from 'react'
-import { getData } from '../../../../helpers/data'
+import { getData } from '@helpers/data'
 import styles from './index.module.scss'
 
 const { content } = await getData('whoAmI')

@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@helpers/*": ["src/helpers/*"]
+    },
     "target": "esnext",
     "lib": [
       "dom",

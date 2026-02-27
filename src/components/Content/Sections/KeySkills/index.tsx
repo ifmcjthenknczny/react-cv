@@ -2,8 +2,8 @@ import Block from '../../../utils/Block'
 import React from 'react'
 import classNames from 'classnames'
 import { colord } from 'colord'
-import { determineFontColor } from '../../../../helpers/color'
-import { getData, PersonalData } from '../../../../helpers/data'
+import { determineFontColor } from '@helpers/color'
+import { getData, PersonalData } from '@helpers/data'
 import styles from './index.module.scss'
 
 const keySkills = await getData('keySkills')

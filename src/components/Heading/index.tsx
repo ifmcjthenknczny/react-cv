@@ -1,9 +1,9 @@
-import { getData, getPhoto } from '../../helpers/data'
+import { getData, getPhoto } from '@helpers/data'
 
 import React from 'react'
 import Socials from './Socials'
 import classNames from 'classnames'
-import { splitFullName } from '../../helpers/utils'
+import { splitFullName } from '@helpers/utils'
 import styles from './index.module.scss'
 
 const { name, position } = await getData('heading')

@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from 'react'
 
 import classNames from 'classnames'
 import styles from './index.module.scss'
-import { DateRange } from '../../../helpers/data'
+import { DateRange } from '@helpers/data'
 
 type HeadingProps = PropsWithChildren<{
     importancy?: 'primary' | 'secondary'

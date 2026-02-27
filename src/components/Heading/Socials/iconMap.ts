@@ -5,7 +5,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
-import { PersonalData } from '../../../helpers/data'
+import { PersonalData } from '@helpers/data'
 
 type SocialType = PersonalData['socials'][number]['type']
 

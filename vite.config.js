@@ -49,6 +49,11 @@ function cvDataPlugin() {
 export default defineConfig(() => {
   return {
     base: '/',
+    resolve: {
+      alias: {
+        '@helpers': path.resolve(process.cwd(), 'src/helpers'),
+      },
+    },
     build: {
       outDir: 'build',
       target: 'esnext'
