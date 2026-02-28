@@ -2,91 +2,108 @@ import { z } from 'zod'
 import { SOCIAL_TYPES } from './types'
 import type { PersonalData } from './types'
 
+const nonEmptyString = z.string().min(1, 'must not be empty')
 const monthYearRegex = /^\d{1,2}\/\d{4}$/ // MM/YYYY
-const dateRangeSchema = z.tuple([
-    z.string().regex(monthYearRegex),
-    z.union([z.string().regex(monthYearRegex), z.literal('now')]),
-])
+
+function isMonthYearInFuture(mmYyyy: string): boolean {
+    const [mm, yyyy] = mmYyyy.split('/').map(Number)
+    const now = new Date()
+    const currentYear = now.getFullYear()
+    const currentMonth = now.getMonth() + 1
+    return yyyy > currentYear || (yyyy === currentYear && mm > currentMonth)
+}
+
+const dateRangeSchema = z
+    .tuple([
+        z.string().regex(monthYearRegex),
+        z.union([z.string().regex(monthYearRegex), z.literal('now')]),
+    ])
+    .refine(
+        ([start, end]) =>
+            !isMonthYearInFuture(start) &&
+            (end === 'now' || !isMonthYearInFuture(end)),
+        { message: 'date must not be in the future' },
+    )
 
 const socialSchema = z.looseObject({
     type: z.enum(SOCIAL_TYPES),
-    label: z.string(),
+    label: nonEmptyString,
     url: z.url().optional(),
 })
 
 const experienceSchema = z.looseObject({
-    job: z.string(),
-    company: z.string(),
+    job: nonEmptyString,
+    company: nonEmptyString,
     date: dateRangeSchema,
-    description: z.array(z.string()),
-    shortCompany: z.string().optional(),
+    description: z.array(nonEmptyString).min(1, 'at least one item required'),
+    shortCompany: nonEmptyString.optional(),
     url: z.url().optional(),
 })
 
 const educationSchema = z.looseObject({
-    type: z.string(),
-    uni: z.string(),
-    spec: z.string(),
-    thesis: z.string().optional(),
+    type: nonEmptyString,
+    uni: nonEmptyString,
+    spec: nonEmptyString,
+    thesis: nonEmptyString.optional(),
     date: dateRangeSchema,
     uniUrl: z.url().optional(),
     thesisUrl: z.url().optional(),
 })
 
 const languageSchema = z.looseObject({
-    level: z.union([
-        z.literal(1),
-        z.literal(2),
-        z.literal(3),
-        z.literal(4),
-        z.literal(5),
-    ]),
-    name: z.string(),
-    description: z.string(),
+    level: z.int().min(1).max(5),
+    name: nonEmptyString,
+    description: nonEmptyString,
 })
 
 const keySkillSchema = z.looseObject({
-    name: z.string(),
+    name: nonEmptyString,
     logoUrl: z.string().url().optional(),
     color: z.string().optional(),
     width: z.number().min(0).max(100).optional(),
     fontColor: z.string().optional(),
-    synonym: z.array(z.string()).optional(),
+    synonym: z.array(nonEmptyString).optional(),
 })
 
-const otherSkillSchema = z.looseObject({
-    tech: z.array(z.string()),
-    excludedTech: z.array(z.string()).optional(),
-    synonyms: z.array(z.string()).optional(),
-    potential: z.array(z.string()).optional(),
+const otherSkillsSchema = z.looseObject({
+    tech: z.array(nonEmptyString).min(1, 'at least one tech required'),
+    excludedTech: z.array(nonEmptyString).optional(),
+    synonyms: z.array(nonEmptyString).optional(),
+    potential: z.array(nonEmptyString).optional(),
 })
 
 const activitySchema = z.looseObject({
-    label: z.string(),
-    percent: z.number(),
+    label: nonEmptyString,
+    percent: z.number().min(0).max(100),
 })
 
 const projectSchema = z.looseObject({
-    name: z.string(),
-    owner: z.string().optional(),
-    description: z.string(),
+    name: nonEmptyString,
+    owner: nonEmptyString.optional(),
+    description: nonEmptyString,
     link: z.url().optional(),
 })
 
 const personalDataSchema = z.looseObject({
-    heading: z.looseObject({ name: z.string(), position: z.string() }),
-    socials: z.array(socialSchema),
-    whoAmI: z.looseObject({ content: z.string() }),
-    experiences: z.array(experienceSchema),
-    education: z.array(educationSchema),
-    languages: z.array(languageSchema),
-    keySkills: z.array(keySkillSchema),
-    otherSkills: otherSkillSchema,
-    responsibilities: z.looseObject({
-        companyName: z.string(),
-        activities: z.array(activitySchema),
-    }),
-    projects: z.array(projectSchema),
+    heading: z.looseObject({ name: nonEmptyString, position: nonEmptyString }),
+    socials: z.array(socialSchema).min(1, 'at least one social required'),
+    whoAmI: z.looseObject({ content: nonEmptyString }),
+    experiences: z.array(experienceSchema).min(1, 'at least one experience required'),
+    education: z.array(educationSchema).min(1, 'at least one education entry required'),
+    languages: z.array(languageSchema).min(1, 'at least one language required'),
+    keySkills: z.array(keySkillSchema).min(1, 'at least one key skill required'),
+    otherSkills: otherSkillsSchema,
+    responsibilities: z
+        .looseObject({
+            companyName: nonEmptyString,
+            activities: z.array(activitySchema).min(1, 'at least one activity required'),
+        })
+        .refine(
+            (data) =>
+                Math.abs(data.activities.reduce((sum, a) => sum + a.percent, 0) - 100) < 1e-6,
+            { message: 'activities percent values must sum to 100', path: ['responsibilities'] },
+        ),
+    projects: z.array(projectSchema).min(1, 'at least one project required'),
 })
 
 export function validateData(raw: unknown): PersonalData {

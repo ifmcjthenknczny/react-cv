@@ -1,10 +1,10 @@
 import { getData, getPhoto } from '@helpers/data'
 
-import React from 'react'
 import Socials from './Socials'
 import classNames from 'classnames'
 import { splitFullName } from '@helpers/utils'
 import styles from './index.module.scss'
+import React from 'react'
 
 const { name, position } = await getData('heading')
 const photoUrl = await getPhoto()

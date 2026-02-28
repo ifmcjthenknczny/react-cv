@@ -1,5 +1,6 @@
-import React from 'react'
 import styles from './index.module.scss'
+import React from 'react'
+
 
 const USE_LLM_GREETINGS = !!import.meta.env.VITE_REPLACE_MESSAGE
 

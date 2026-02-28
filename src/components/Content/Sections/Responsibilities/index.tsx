@@ -10,11 +10,13 @@ import {
 
 import Block from '../../../utils/Block'
 import { Doughnut } from 'react-chartjs-2'
-import { OPACITY } from '../KeySkills'
-import React from 'react'
+import { getOpacity } from '@helpers/color'
 import { getData } from '@helpers/data'
 import styles from './index.module.scss'
+import React from 'react'
 
+
+const opacity = getOpacity()
 const { companyName, activities } = (await getData(
     'responsibilities'
 ))
@@ -83,7 +85,7 @@ const data = {
         {
             label: '% of time',
             data: activities.map(({ percent }) => percent),
-            backgroundColor: colors(OPACITY),
+            backgroundColor: colors(opacity),
             borderColor: colors(1),
             borderWidth: 1
         }

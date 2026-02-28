@@ -1,0 +1,14 @@
+$max-column-width: 47.5%;
+
+.column {
+    max-width: $max-column-width;
+    margin-right: 100%- 2 * $max-column-width;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.column:last-child {
+    margin-right: 0;
+}

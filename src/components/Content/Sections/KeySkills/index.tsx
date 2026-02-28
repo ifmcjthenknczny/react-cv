@@ -1,16 +1,22 @@
 import Block from '../../../utils/Block'
-import React from 'react'
 import classNames from 'classnames'
 import { colord } from 'colord'
-import { determineFontColor } from '@helpers/color'
+import { determineFontColor, getOpacity } from '@helpers/color'
 import { getData, PersonalData } from '@helpers/data'
 import styles from './index.module.scss'
+import React from 'react'
+
 
 const keySkills = await getData('keySkills')
-
-export const OPACITY = 0.7
-
+const opacity = getOpacity()
 // PROTIP: recommended to use about 10 key skills
+
+const calculateWidth = (
+    max: number,
+    min: number,
+    index: number,
+    length: number
+) => max - (max - min) * (index / length - 1)
 
 const KeySkills = () => (
     <Block
@@ -39,7 +45,7 @@ const KeySkill = ({ skill, index }: { skill: PersonalData['keySkills'][number]; 
             <div
                 style={{
                     backgroundColor: computedBackgroundColor,
-                    opacity: OPACITY,
+                    opacity,
                     color:
                         skill.fontColor ??
                         determineFontColor(
@@ -56,10 +62,3 @@ const KeySkill = ({ skill, index }: { skill: PersonalData['keySkills'][number]; 
 }
 
 export default KeySkills
-
-const calculateWidth = (
-    max: number,
-    min: number,
-    index: number,
-    length: number
-) => max - (max - min) * (index / length - 1)

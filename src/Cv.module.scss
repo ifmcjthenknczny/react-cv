@@ -23,7 +23,6 @@ $a4-width: 21cm;
 
 .curlyBraceDown {
     font-size: $brace-size;
-    // top: calc($a4-height - $brace-vert-diff - 2 * $padding-vert);
     top: calc($a4-height - $brace-vert-diff - 1.5 * $padding-vert);
     left: $a4-width + $brace-hor-diff + $padding-horiz;
     position: absolute;
@@ -46,10 +45,6 @@ $a4-width: 21cm;
     transition:
         background-color 0.3s ease,
         color 0.3s ease;
-
-    // &:hover {
-    //   background-color: darken(#3498db, 10%);
-    // }
 
     &:focus {
         outline: none;

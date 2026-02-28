@@ -1,8 +1,9 @@
 import Block from '../../../utils/Block'
-import React from 'react'
 import TimelineHeading from '../../../utils/TimelineHeading'
 import { getData, PersonalData } from '@helpers/data'
 import styles from './index.module.scss'
+import React from 'react'
+
 
 const education = await getData('education')
 

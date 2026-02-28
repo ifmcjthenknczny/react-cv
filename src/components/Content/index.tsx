@@ -4,25 +4,26 @@ import KeySkills from './Sections/KeySkills'
 import Languages from './Sections/Languages'
 import OtherSkills from './Sections/OtherSkills'
 import Projects from './Sections/Projects'
-import React from 'react'
 import Responsibilities from './Sections/Responsibilities'
 import WhoAmI from './Sections/WhoAmI'
 import styles from './index.module.scss'
+import Column from '../utils/Column'
+import React from 'react'
 
 const Content = () => (
     <div className={styles.content}>
-        <div className={styles.column}>
+        <Column>
             <WhoAmI />
             <Experience />
             <Education />
-        </div>
-        <div className={styles.column}>
+        </Column>
+        <Column>
             <Languages />
             <KeySkills />
             <OtherSkills />
             <Responsibilities />
             <Projects />
-        </div>
+        </Column>
     </div>
 )
 

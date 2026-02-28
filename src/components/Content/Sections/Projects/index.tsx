@@ -1,8 +1,9 @@
 import Block from '../../../utils/Block'
-import React from 'react'
 import { getData } from '@helpers/data'
 import styles from './index.module.scss'
 import { PersonalData } from '@helpers/data'
+import React from 'react'
+
 
 const projects = await getData('projects')
 const experiences = await getData('experiences')
