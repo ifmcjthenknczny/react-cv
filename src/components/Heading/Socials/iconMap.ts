@@ -10,7 +10,7 @@ import { PersonalData } from '@helpers/data'
 type SocialType = PersonalData['socials'][number]['type']
 
 const iconByKey: Record<SocialType, IconDefinition> = {
-    'map': faMapMarkerAlt,
+    'city': faMapMarkerAlt,
     'github': faGithub,
     'email': faEnvelope,
     'phone': faPhone,

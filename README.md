@@ -38,14 +38,14 @@ The `data.json` file (based on `data.example.json`) has the following structure:
 
 | Key | Description |
 |-----|-------------|
-| **heading** | `name` – full name, `position` – job title, optionally `photo` – path to photo (e.g. `"/photo.jpg"`) |
-| **socials** | Array of contacts: each item has `type` (e.g. map, github, email, phone, linkedin), `label` and `url` |
+| **heading** | `name` – full name, `position` – job title |
+| **socials** | Array of contacts: each item has `type` (city, github, email, phone, linkedin), `label` and `url` |
 | **whoAmI** | Object with `content` – short “about me” text |
-| **experiences** | Array of jobs: `job`, `company`, `date` (array e.g. `["03/2023","now"]`), `description` (array of bullet points), `shortCompany` (company abbreviation) |
-| **education** | Array of entries: `type`, `uni`, `spec`, `thesis`, `date` (array) |
-| **languages** | Array of languages: `level` (1–5), `name`, `description` (e.g. "native", "B1") |
-| **keySkills** | Array of key skills: `name`, `color` (hex, e.g. `#61dafb`) |
-| **otherSkills** | `tech` – array of technologies, `excludedTech` – names to exclude from matching, `synonyms` – name mapping |
+| **experiences** | Array of jobs: `job`, `company` (company name), `date` (array e.g. `["03/2023","now"]`), `description` (array of bullet points), `shortCompany` (company abbreviation), `url` (optional) |
+| **education** | Array of entries: `type`, `uni`, `spec`, `thesis`, `date` (array), `uniUrl` (optional) |
+| **languages** | Array of languages: `level` (1–5), `name`, `description` (e.g. "native", "A1") |
+| **keySkills** | Array of key skills: `name`, `color` (hex, e.g. `#61dafb`), `logoUrl` (optional), `fontColor` (optional), `synonym` (optional) |
+| **otherSkills** | `tech` – array of technologies, `excludedTech` – names to exclude from matching, `synonyms` – name mapping, `potential` - array of tech names too obscure to list visually, but readable for LLMs |
 | **responsibilities** | `companyName` and `activities` – array of `{ label, percent }` (breakdown of responsibilities in %) |
 | **projects** | Array of projects: `name`, `description`, optionally `owner` |
 
@@ -53,14 +53,15 @@ The `data.json` file (based on `data.example.json`) has the following structure:
 
 If you see a blank page instead of the CV, **`data.json` likely failed validation**. Open developer tools (**F12**) and check the **Console** tab – validation errors are shown there and indicate what to fix in the data file.
 
+## Motivation
+The honest reason I created it is because instead of learning LaTeX for this one-time project I preferred to focus on practising my CSS/React skills.
+
 ## TODO
 * Minimize the PDF output.
 * Export PDF directly to file.
 * Automate margins to fit A4 page.
 * Import language and country flags from library.
-
-## Motivation
-The honest reason I created it is because instead of learning LaTeX for this one-time project I preferred to focus on practising my CSS/React skills.
+* Fix bottom curly brace on Chrome.
 
 ## License
 
