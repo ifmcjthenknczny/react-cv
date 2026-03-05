@@ -91,51 +91,63 @@
   "keySkills": [
     {
       "name": "Rainbow Sorcery",
-      "color": "#61dafb"
+      "color": "#61dafb",
+      "logoUrl": "https://8upload.com/image/ee54e3813bd84e52/logoipsum-1.png"
     },
     {
       "name": "Enchanted Coding",
-      "color": "#ff6b81"
+      "color": "#ff6b81",
+      "logoUrl": "https://8upload.com/image/40229ac787f21a06/logoipsum-2.png"
     },
     {
       "name": "Mystic Scripting",
-      "color": "#a96de3"
+      "color": "#a96de3",
+      "logoUrl": "https://8upload.com/image/0e3430d321fe6012/logoipsum-3.png"
     },
     {
       "name": "Spellbinding Code",
-      "color": "#56c8d8"
+      "color": "#56c8d8",
+      "logoUrl": "https://8upload.com/image/2fd1d4631809b1e2/logoipsum-4.png"
     },
     {
       "name": "Magical Data Storage",
-      "color": "#ffb84d"
+      "color": "#ffb84d",
+      "logoUrl": "https://8upload.com/image/4c709fab77437f89/logoipsum-5.png"
     },
     {
       "name": "Enchanted Database",
-      "color": "#cc66cc"
+      "color": "#cc66cc",
+      "logoUrl": "https://8upload.com/image/79b347052513a168/logoipsum-6.png"
     },
     {
       "name": "HTML Enchantment",
-      "color": "#ff99cc"
+      "color": "#ff99cc",
+      "logoUrl": "https://8upload.com/image/88ab2c2351c1ec0e/logoipsum-7.png"
     },
     {
       "name": "Cloud Therapy & Whispering",
-      "color": "#a2d2ff"
+      "color": "#a2d2ff",
+      "logoUrl": "https://8upload.com/image/f4012aee8e44bf6e/logoipsum-8.png"
     },
     {
       "name": "Stardust Performance Tuning",
-      "color": "#ffd700"
+      "color": "#ffd700",
+      "logoUrl": "https://8upload.com/image/1625379fb519c32b/logoipsum-9.png"
     },
     {
       "name": "Interspecies Diplomacy",
-      "color": "#b8f2e6"
+      "color": "#b8f2e6",
+      "logoUrl": "https://8upload.com/image/574671beb363ef75/logoipsum-10.png"
     },
     {
       "name": "Glitter Infrastructure",
-      "color": "#ef476f"
+      "color": "#ef476f",
+      "logoUrl": "https://8upload.com/image/752c52c78528768b/logoipsum-11.png"
     },
     {
       "name": "Total Biology",
-      "color": "#06d6a0"
+      "color": "#06d6a0",
+      "logoUrl": "https://8upload.com/image/a1ad774c45a7f9ae/logoipsum-12.png"
     }
   ],
   "otherSkills": {

@@ -6,7 +6,8 @@ A React-cv is an interactive project that from provided data creates aesthetic s
 
 * Clone repo, install packages. Run.
 * Not long after start you will see a print window. Close it if you don't want to print it now.
-* Edit `data.json` in the project root (see `data.example.json` for structure). Put your photo in `assets/photo.jpg` and set `"photo": "/photo.jpg"` in the heading section.
+* Edit `data.json` in the project root (see `data.example.json` for structure). Put your photo in `assets/photo.jpg` and set `"photo": "/photo.jpg"` in the heading section. For a smaller PDF (~1 MB), use a photo up to ~600 px on the longer edge and reasonable JPEG quality (e.g. 80%).
+* For logo URLs use 128px thumbs; keep photo under ~600 px for ~1 MB PDF.
 * `randomPokemonAddCount` in OtherSkills is highly recommended to be increased when using your own data.
 * Works best with Firefox.
 
@@ -57,13 +58,15 @@ If you see a blank page instead of the CV, **`data.json` likely failed validatio
 The honest reason I created it is because instead of learning LaTeX for this one-time project I preferred to focus on practising my CSS/React skills.
 
 ## TODO
-* Minimize the PDF output.
+* Automatically minimize the PDF output.
 * Export PDF directly to file.
+* Enable output text content to be selected.
 * Automate margins to fit A4 page.
 * Import language and country flags from library.
 * Fix bottom curly brace on Chrome.
 * Internationalization.
 * Validate images loaded properly.
+* Limit CV print to one page.
 
 ## License
 

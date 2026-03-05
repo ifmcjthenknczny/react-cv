@@ -36,3 +36,4 @@ photo-real_old.jpg
 data.json
 photo.*
 !photo.example.*
+data.backup.json
