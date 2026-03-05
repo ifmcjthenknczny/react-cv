@@ -6,7 +6,7 @@ A React-cv is an interactive project that creates aesthetic software developer C
 
 * Clone repo, install packages. Run.
 * Not long after start you will see a print window. Close it if you don't want to save the file just now.
-* Edit `data.json` in the project root (see `data.example.json` for structure). Put your photo in `assets/photo.jpg` path. 
+* Edit `data.json` in the project root (see `data.example.json` for structure). Put your photo in `src/assets/photo.jpg` path. 
 
 ## Usage recomendations
 * For a smaller PDF (~1 MB), use a photo up to ~600 px on the longer edge and reasonable JPEG quality (e.g. 80%). For logo URLs use of max 128px thumbs is recommended.
@@ -29,7 +29,7 @@ A React-cv is an interactive project that creates aesthetic software developer C
    ```
 The project should be available at `http://localhost:5173`, through you would probably need to refresh the page to see changes.
 
-4. Copy `data.example.json` as `data.json`, then fill it with your content. Put your photo in `assets` directory and rename it to `photo.jpg`.
+4. Copy `data.example.json` as `data.json`, then fill it with your content. Put your photo in `src/assets` directory and rename it to `photo.jpg`.
 
 ## Structure of data.example.json
 
