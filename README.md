@@ -1,15 +1,17 @@
 # React CV
 
-A React-cv is an interactive project that from provided data creates aesthetic software developer CV. Project is a HTML-CSS-React-TS template that outputs page of A4 size, ready to be printed to pdf file.
+A React-cv is an interactive project that creates aesthetic software developer CV from provided data. Project is a HTML-CSS-React-TS template that outputs page of A4 size, ready to be saved to pdf file.
 
 ## What you need to know - put briefly
 
 * Clone repo, install packages. Run.
-* Not long after start you will see a print window. Close it if you don't want to print it now.
-* Edit `data.json` in the project root (see `data.example.json` for structure). Put your photo in `assets/photo.jpg` and set `"photo": "/photo.jpg"` in the heading section. For a smaller PDF (~1 MB), use a photo up to ~600 px on the longer edge and reasonable JPEG quality (e.g. 80%).
-* For logo URLs use 128px thumbs; keep photo under ~600 px for ~1 MB PDF.
-* `randomPokemonAddCount` in OtherSkills is highly recommended to be increased when using your own data.
-* Works best with Firefox.
+* Not long after start you will see a print window. Close it if you don't want to save the file just now.
+* Edit `data.json` in the project root (see `data.example.json` for structure). Put your photo in `assets/photo.jpg` path. 
+
+## Usage recomendations
+* For a smaller PDF (~1 MB), use a photo up to ~600 px on the longer edge and reasonable JPEG quality (e.g. 80%). For logo URLs use of max 128px thumbs is recommended.
+* Works best with Chrome with use of option "Save to PDF". Unfortunatelly, printing to pdf using Firefox makes almost all text content unselectable. While printing, enable option "Background graphics".
+* `randomPokemonAddCount` in OtherSkills is highly recommended to be increased when using your own data ;)
 
 ## Installation
 
@@ -21,17 +23,13 @@ A React-cv is an interactive project that from provided data creates aesthetic s
    ```bash
    yarn install
    ```
-
-## Usage
-
 3. Go to the main directory of a project and run:
    ```bash
    yarn dev
    ```
+The project should be available at `http://localhost:5173`, through you would probably need to refresh the page to see changes.
 
-   The project should be available at `http://localhost:5173` and you should be able to see changes in real-time.
-
-4. Copy `data.example.json` as `data.json`, then fill it with your CV content. Put your photo in `assets/photo.jpg` and set `"photo": "/photo.jpg"` in the `heading` section.
+4. Copy `data.example.json` as `data.json`, then fill it with your content. Put your photo in `assets` directory and rename it to `photo.jpg`.
 
 ## Structure of data.example.json
 
@@ -60,13 +58,11 @@ The honest reason I created it is because instead of learning LaTeX for this one
 ## TODO
 * Automatically minimize the PDF output.
 * Export PDF directly to file.
-* Enable output text content to be selected.
 * Automate margins to fit A4 page.
 * Import language and country flags from library.
-* Fix bottom curly brace on Chrome.
 * Internationalization.
 * Validate images loaded properly.
-* Limit CV print to one page.
+* Limit CV save to one page.
 
 ## License
 

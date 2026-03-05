@@ -26,6 +26,10 @@ $a4-width: 21cm;
     top: calc($a4-height - $brace-vert-diff - 1.5 * $padding-vert);
     left: $a4-width + $brace-hor-diff + $padding-horiz;
     position: absolute;
+
+    @media print {
+        bottom: 0;
+    }
 }
 
 .downloadButton {
