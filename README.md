@@ -13,6 +13,10 @@ A React-cv is an interactive project that creates aesthetic software developer C
 * Works best with Chrome with use of option "Save to PDF". Unfortunatelly, printing to pdf using Firefox makes almost all text content unselectable. While printing, enable option "Background graphics".
 * `randomPokemonAddCount` in OtherSkills is highly recommended to be increased when using your own data ;)
 
+## Empty page / no content
+
+If you see a blank page instead of the CV, **`data.json` likely failed validation**. Open developer tools (**F12**) and check the **Console** tab – validation errors are shown there and indicate what to fix in the data file.
+
 ## Installation
 
 1. Clone the repository:
@@ -31,7 +35,7 @@ The project should be available at `http://localhost:5173`, through you would pr
 
 4. Copy `data.example.json` as `data.json`, then fill it with your content. Put your photo in `src/assets` directory and rename it to `photo.jpg`.
 
-## Structure of data.example.json
+## Data structure
 
 The `data.json` file (based on `data.example.json`) has the following structure:
 
@@ -47,10 +51,6 @@ The `data.json` file (based on `data.example.json`) has the following structure:
 | **otherSkills** | `tech` – array of technologies, `excludedTech` – names to exclude from matching, `synonyms` – name mapping, `potential` - array of tech names too obscure to list visually, but readable for LLMs |
 | **responsibilities** | `companyName` and `activities` – array of `{ label, percent }` (breakdown of responsibilities in %) |
 | **projects** | Array of projects: `name`, `description`, optionally `owner` |
-
-## Empty page / no content
-
-If you see a blank page instead of the CV, **`data.json` likely failed validation**. Open developer tools (**F12**) and check the **Console** tab – validation errors are shown there and indicate what to fix in the data file.
 
 ## Motivation
 The honest reason I created it is because instead of learning LaTeX for this one-time project I preferred to focus on practising my CSS/React skills.
