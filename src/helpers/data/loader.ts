@@ -1,4 +1,4 @@
-import { validateData } from './schema'
+import { validateData } from './validate'
 import type { PersonalData } from './types'
 
 let dataPromise: Promise<PersonalData> | null = null

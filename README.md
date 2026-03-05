@@ -62,6 +62,8 @@ The honest reason I created it is because instead of learning LaTeX for this one
 * Automate margins to fit A4 page.
 * Import language and country flags from library.
 * Fix bottom curly brace on Chrome.
+* Internationalization.
+* Validate images loaded properly.
 
 ## License
 
