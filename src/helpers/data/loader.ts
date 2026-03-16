@@ -4,9 +4,8 @@ import type { PersonalData } from './types'
 let dataPromise: Promise<PersonalData | null> | null = null
 
 export async function loadData(): Promise<PersonalData | null> {
-    const personalData = await dataPromise
-    if (personalData) {
-        return personalData
+    if (dataPromise !== null) {
+        return dataPromise
     }
     dataPromise = (async (): Promise<PersonalData | null> => {
         const tryData = await fetch('/data.json')

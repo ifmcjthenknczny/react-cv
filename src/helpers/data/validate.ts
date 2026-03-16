@@ -115,12 +115,11 @@ async function validateLogoUrls(keySkills: PersonalData['keySkills']): Promise<v
     const results = await Promise.allSettled(
         skillsWithLogo.map((skill) => axios.get(skill.logoUrl)),
     )
-    const invalid: Array<{ name: string; url: string; reason: string }> = []
+    const invalid: Array<{ name: string; reason: string }> = []
     results.forEach((result, i) => {
         if (result.status === 'rejected') {
             invalid.push({
                 name: skillsWithLogo[i].name,
-                url: skillsWithLogo[i].logoUrl,
                 reason: result.reason?.message ?? String(result.reason),
             })
         }
