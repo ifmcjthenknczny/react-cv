@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import { SOCIAL_TYPES } from './types'
 import type { PersonalData } from './types'
+import axios from 'axios'
 
 const nonEmptyString = z.string().min(1, 'must not be empty')
 const monthYearRegex = /^\d{1,2}\/\d{4}$/ // MM/YYYY
@@ -106,20 +107,58 @@ const personalDataSchema = z.looseObject({
     projects: z.array(projectSchema).min(1, 'at least one project required'),
 })
 
-export function validateData(raw: unknown): PersonalData {
-    const result = personalDataSchema.safeParse(raw)
-    if (result.success) {
-        return result.data as PersonalData
-    }
-    // eslint-disable-next-line no-console
-    console.error('[data] JSON validation errors:')
-    // eslint-disable-next-line no-console
-    console.error(z.prettifyError(result.error))
-    result.error.issues.forEach((issue, i) => {
-        const path = issue.path?.length ? issue.path.join('.') : '(root)'
-        const msg = 'message' in issue ? issue.message : String(issue)
-        // eslint-disable-next-line no-console
-        console.error(`  ${i + 1}. [${path}] ${msg}`)
+async function validateLogoUrls(keySkills: PersonalData['keySkills']): Promise<void> {
+    const skillsWithLogo = keySkills.filter(
+        (skill): skill is typeof skill & { logoUrl: string } =>
+            'logoUrl' in skill && Boolean(skill.logoUrl),
+    )
+    const results = await Promise.allSettled(
+        skillsWithLogo.map((skill) => axios.get(skill.logoUrl)),
+    )
+    const invalid: Array<{ name: string; reason: string }> = []
+    results.forEach((result, i) => {
+        if (result.status === 'rejected') {
+            invalid.push({
+                name: skillsWithLogo[i].name,
+                reason: result.reason?.message ?? String(result.reason),
+            })
+        }
     })
-    throw new Error('Invalid data.json structure – check the console.')
+    if (invalid.length > 0) {
+        const message = [
+            '[data] Invalid logo URLs for skills:',
+            ...invalid.map(
+                (x) => `  • ${x.name}: ${x.reason}`,
+            ),
+            'Change the above logo URLs to valid image URLs.',
+        ].join('\n')
+        throw new Error(message)
+    }
+}
+
+export async function validateData(raw: unknown): Promise<PersonalData | null> {
+    const result = personalDataSchema.safeParse(raw)
+    if (!result.success) {
+        // eslint-disable-next-line no-console
+        console.error('[data] JSON validation errors:')
+        // eslint-disable-next-line no-console
+        console.error(z.prettifyError(result.error))
+        result.error.issues.forEach((issue, i) => {
+            const path = issue.path?.length ? issue.path.join('.') : '(root)'
+            const msg = 'message' in issue ? issue.message : String(issue)
+            // eslint-disable-next-line no-console
+            console.error(`  ${i + 1}. [${path}] ${msg}`)
+        })
+        return null
+    }
+    const resultData: PersonalData = result.data as PersonalData
+    try {
+        await validateLogoUrls(resultData.keySkills)
+    } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error(error)
+        return null
+    }
+
+    return resultData
 }

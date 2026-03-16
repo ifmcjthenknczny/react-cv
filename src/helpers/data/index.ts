@@ -1,4 +1,3 @@
-export { getData, getPhoto } from './loader'
-export type {
-    PersonalData,
-} from './types'
+// TODO: is this file necessary?
+export { getData, getPhoto, loadData } from './loader'
+export type { DateRange, PersonalData } from './types'

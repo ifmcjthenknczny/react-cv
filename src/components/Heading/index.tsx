@@ -31,9 +31,9 @@ const Heading = () => (
                     </div>
                 </div>
             </div>
-            <div className={styles.photoContainer}>
+            {photoUrl && <div className={styles.photoContainer}>
                 <img src={photoUrl} alt={`${name}`} className={styles.photo} />
-            </div>
+            </div>}
         </div>
         <Socials />
     </header>

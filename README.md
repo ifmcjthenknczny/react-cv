@@ -59,9 +59,8 @@ The honest reason I created it is because instead of learning LaTeX for this one
 * Automatically minimize the PDF output.
 * Export PDF directly to file.
 * Automate margins to fit A4 page.
-* Import language and country flags from library.
+* Import language and country flags from external library.
 * Internationalization.
-* Validate images loaded properly.
 * Limit CV save to one page.
 
 ## License
