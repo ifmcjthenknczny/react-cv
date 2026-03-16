@@ -12,7 +12,7 @@ type Social = {
 }
 
 type Month = `${number}/${number}`
-type DateRange = [Month, Month | 'now']
+export type DateRange = [Month, Month | 'now']
 
 type Experience = {
     job: string

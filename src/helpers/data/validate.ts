@@ -108,19 +108,36 @@ const personalDataSchema = z.looseObject({
 })
 
 async function validateLogoUrls(keySkills: PersonalData['keySkills']): Promise<void> {
-    const checks = keySkills
-        .filter((skill) => 'logoUrl' in skill && Boolean(skill.logoUrl))
-        .map(async (skill) => {
-            try {
-                await axios.get(skill.logoUrl!)
-            } catch (error) {
-                throw new Error(`Failed to download logo for ${skill.name}: ${error}. Change logo URL to a valid image URL.`)
-            }
-        })
-    await Promise.all(checks)
+    const skillsWithLogo = keySkills.filter(
+        (skill): skill is typeof skill & { logoUrl: string } =>
+            'logoUrl' in skill && Boolean(skill.logoUrl),
+    )
+    const results = await Promise.allSettled(
+        skillsWithLogo.map((skill) => axios.get(skill.logoUrl)),
+    )
+    const invalid: Array<{ name: string; url: string; reason: string }> = []
+    results.forEach((result, i) => {
+        if (result.status === 'rejected') {
+            invalid.push({
+                name: skillsWithLogo[i].name,
+                url: skillsWithLogo[i].logoUrl,
+                reason: result.reason?.message ?? String(result.reason),
+            })
+        }
+    })
+    if (invalid.length > 0) {
+        const message = [
+            '[data] Invalid logo URLs for skills:',
+            ...invalid.map(
+                (x) => `  • ${x.name}: ${x.reason}`,
+            ),
+            'Change the above logo URLs to valid image URLs.',
+        ].join('\n')
+        throw new Error(message)
+    }
 }
 
-export async function validateData(raw: unknown): Promise<PersonalData> {
+export async function validateData(raw: unknown): Promise<PersonalData | null> {
     const result = personalDataSchema.safeParse(raw)
     if (!result.success) {
         // eslint-disable-next-line no-console
@@ -133,10 +150,16 @@ export async function validateData(raw: unknown): Promise<PersonalData> {
             // eslint-disable-next-line no-console
             console.error(`  ${i + 1}. [${path}] ${msg}`)
         })
-        throw new Error('Invalid data.json structure – check the console.')
+        return null
     }
     const resultData: PersonalData = result.data as PersonalData
-    await validateLogoUrls(resultData.keySkills)
+    try {
+        await validateLogoUrls(resultData.keySkills)
+    } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error(error)
+        return null
+    }
 
     return resultData
 }

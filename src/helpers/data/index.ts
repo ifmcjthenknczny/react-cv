@@ -1,4 +1,2 @@
-export { getData, getPhoto } from './loader'
-export type {
-    PersonalData,
-} from './types'
+export { getData, getPhoto, loadData } from './loader'
+export type { DateRange, PersonalData } from './types'

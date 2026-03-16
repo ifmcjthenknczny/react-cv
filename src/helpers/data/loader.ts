@@ -1,13 +1,14 @@
 import { validateData } from './validate'
 import type { PersonalData } from './types'
 
-let dataPromise: Promise<PersonalData> | null = null
+let dataPromise: Promise<PersonalData | null> | null = null
 
-async function loadData(): Promise<PersonalData> {
-    if (dataPromise) {
-        return dataPromise
+export async function loadData(): Promise<PersonalData | null> {
+    const personalData = await dataPromise
+    if (personalData) {
+        return personalData
     }
-    dataPromise = (async () => {
+    dataPromise = (async (): Promise<PersonalData | null> => {
         const tryData = await fetch('/data.json')
         const raw = tryData.ok
             ? await tryData.json()
@@ -28,14 +29,17 @@ const photoModules = import.meta.glob<{ default: string }>(
     '../../assets/photo*.jpg'
 )
 
-export const getPhoto = async (): Promise<string> => {
+export const getPhoto = async (): Promise<string | null> => {
     const load =
         photoModules['../../assets/photo.jpg'] ??
         photoModules['../../assets/photo.example.jpg']
-    if (!load)
-        throw new Error(
-            'No photo asset (photo.jpg or photo.example.jpg) found in assets.'
+    if (!load) {
+        // eslint-disable-next-line no-console
+        console.error(
+            'No photo file (photo.jpg or photo.example.jpg) found in assets.'
         )
+        return null
+    }
     const m = await load()
     return m.default
 }
@@ -53,11 +57,11 @@ export async function getData<T = unknown>(
     if (Array.isArray(key)) {
         return key.reduce(
             (acc, k) => {
-                acc[k] = data[k]
+                acc[k] = data?.[k]
                 return acc
             },
             {} as Record<keyof PersonalData, unknown>
         ) as T
     }
-    return data[key as keyof PersonalData] as T
+    return data?.[key as keyof PersonalData] as T
 }
