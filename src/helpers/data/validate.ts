@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import { SOCIAL_TYPES } from './types'
 import type { PersonalData } from './types'
+import axios from 'axios'
 
 const nonEmptyString = z.string().min(1, 'must not be empty')
 const monthYearRegex = /^\d{1,2}\/\d{4}$/ // MM/YYYY
@@ -106,20 +107,36 @@ const personalDataSchema = z.looseObject({
     projects: z.array(projectSchema).min(1, 'at least one project required'),
 })
 
-export function validateData(raw: unknown): PersonalData {
+async function validateLogoUrls(keySkills: PersonalData['keySkills']): Promise<void> {
+    const checks = keySkills
+        .filter((skill) => 'logoUrl' in skill && Boolean(skill.logoUrl))
+        .map(async (skill) => {
+            try {
+                await axios.get(skill.logoUrl!)
+            } catch (error) {
+                throw new Error(`Failed to download logo for ${skill.name}: ${error}. Change logo URL to a valid image URL.`)
+            }
+        })
+    await Promise.all(checks)
+}
+
+export async function validateData(raw: unknown): Promise<PersonalData> {
     const result = personalDataSchema.safeParse(raw)
-    if (result.success) {
-        return result.data as PersonalData
-    }
-    // eslint-disable-next-line no-console
-    console.error('[data] JSON validation errors:')
-    // eslint-disable-next-line no-console
-    console.error(z.prettifyError(result.error))
-    result.error.issues.forEach((issue, i) => {
-        const path = issue.path?.length ? issue.path.join('.') : '(root)'
-        const msg = 'message' in issue ? issue.message : String(issue)
+    if (!result.success) {
         // eslint-disable-next-line no-console
-        console.error(`  ${i + 1}. [${path}] ${msg}`)
-    })
-    throw new Error('Invalid data.json structure – check the console.')
+        console.error('[data] JSON validation errors:')
+        // eslint-disable-next-line no-console
+        console.error(z.prettifyError(result.error))
+        result.error.issues.forEach((issue, i) => {
+            const path = issue.path?.length ? issue.path.join('.') : '(root)'
+            const msg = 'message' in issue ? issue.message : String(issue)
+            // eslint-disable-next-line no-console
+            console.error(`  ${i + 1}. [${path}] ${msg}`)
+        })
+        throw new Error('Invalid data.json structure – check the console.')
+    }
+    const resultData: PersonalData = result.data as PersonalData
+    await validateLogoUrls(resultData.keySkills)
+
+    return resultData
 }
