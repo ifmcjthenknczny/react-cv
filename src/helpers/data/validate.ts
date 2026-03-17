@@ -107,6 +107,21 @@ const personalDataSchema = z.looseObject({
     projects: z.array(projectSchema).min(1, 'at least one project required'),
 })
 
+function isLikelyCorsOrNetworkError(reason: unknown): boolean {
+    const msg = typeof reason === 'object' && reason !== null && 'message' in reason
+        ? String((reason as { message: unknown }).message)
+        : String(reason)
+    const code = typeof reason === 'object' && reason !== null && 'code' in reason
+        ? String((reason as { code: unknown }).code)
+        : ''
+    return (
+        code === 'ERR_NETWORK' ||
+        /Network Error/i.test(msg) ||
+        /CORS/i.test(msg) ||
+        /Access-Control/i.test(msg)
+    )
+}
+
 async function validateLogoUrls(keySkills: PersonalData['keySkills']): Promise<void> {
     const skillsWithLogo = keySkills.filter(
         (skill): skill is typeof skill & { logoUrl: string } =>
@@ -117,7 +132,7 @@ async function validateLogoUrls(keySkills: PersonalData['keySkills']): Promise<v
     )
     const invalid: Array<{ name: string; reason: string }> = []
     results.forEach((result, i) => {
-        if (result.status === 'rejected') {
+        if (result.status === 'rejected' && !isLikelyCorsOrNetworkError(result.reason)) {
             invalid.push({
                 name: skillsWithLogo[i].name,
                 reason: result.reason?.message ?? String(result.reason),
