@@ -10,7 +10,7 @@ const VALIDATION_ERROR_MSG =
     'data.json validation failed.\nsee console for more information.'
 
 function App() {
-    const [data, setData] = useState<Awaited<ReturnType<typeof loadData>>>(
+    const [data, setData] = useState<Awaited<ReturnType<typeof loadData>> | undefined>(
         undefined
     )
 
