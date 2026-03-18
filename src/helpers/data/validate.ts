@@ -145,7 +145,7 @@ async function validateLogoUrls(keySkills: PersonalData['keySkills']): Promise<v
             ...invalid.map(
                 (x) => `  • ${x.name}: ${x.reason}`,
             ),
-            'Change the above logo URLs to valid image URLs.',
+            'Change the above logo URLs to valid image URLs. If you are sure the logo URLs are valid, please try to refresh the page.',
         ].join('\n')
         throw new Error(message)
     }
