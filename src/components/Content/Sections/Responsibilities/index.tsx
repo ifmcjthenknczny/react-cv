@@ -15,11 +15,8 @@ import { getData } from '@helpers/data'
 import styles from './index.module.scss'
 import React from 'react'
 
-
 const opacity = getOpacity()
-const { companyName, activities } = (await getData(
-    'responsibilities'
-))
+const { companyName, activities } = await getData('responsibilities')
 
 activities.sort((a, b) => {
     if (a.label.toLowerCase() === 'other') {

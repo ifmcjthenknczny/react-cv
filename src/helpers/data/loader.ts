@@ -2,6 +2,11 @@ import { validateData } from './validate'
 import type { PersonalData } from './types'
 
 let dataPromise: Promise<PersonalData | null> | null = null
+let isRealData: boolean | null = null
+
+export function isUsingRealData(): boolean | null {
+    return isRealData
+}
 
 export async function loadData(): Promise<PersonalData | null> {
     if (dataPromise !== null) {
@@ -9,16 +14,18 @@ export async function loadData(): Promise<PersonalData | null> {
     }
     dataPromise = (async (): Promise<PersonalData | null> => {
         const tryData = await fetch('/data.json')
-        const raw = tryData.ok
+        const usedRealData = tryData.ok
+        isRealData = usedRealData
+        const raw = usedRealData
             ? await tryData.json()
             : await (async () => {
-                const fallback = await fetch('/data.example.json')
-                if (!fallback.ok)
-                    throw new Error(
-                        'Neither data.json nor data.example.json could be loaded.'
-                    )
-                return fallback.json()
-            })()
+                  const fallback = await fetch('/data.example.json')
+                  if (!fallback.ok)
+                      throw new Error(
+                          'Neither data.json nor data.example.json could be loaded.'
+                      )
+                  return fallback.json()
+              })()
         return validateData(raw)
     })()
     return dataPromise

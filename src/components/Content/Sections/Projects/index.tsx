@@ -4,7 +4,6 @@ import styles from './index.module.scss'
 import { PersonalData } from '@helpers/data'
 import React from 'react'
 
-
 const projects = await getData('projects')
 const experiences = await getData('experiences')
 
@@ -15,9 +14,11 @@ const Projects = () => (
     />
 )
 
-
-
-const ProjectContent = ({ projects }: { projects: PersonalData['projects'] }) => (
+const ProjectContent = ({
+    projects
+}: {
+    projects: PersonalData['projects']
+}) => (
     <div className={styles.projects}>
         {projects.map((project, index) => (
             <Project key={index} {...project} />
@@ -49,7 +50,12 @@ const ProjectOwner = ({
     return ownerTextContent
 }
 
-const Project = ({ name, link, owner, description }: PersonalData['projects'][number]) => (
+const Project = ({
+    name,
+    link,
+    owner,
+    description
+}: PersonalData['projects'][number]) => (
     <div className={styles.project}>
         <div className={styles.heading}>
             {link ? <a href={link}>{name}</a> : name}

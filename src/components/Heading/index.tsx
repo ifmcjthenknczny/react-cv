@@ -31,9 +31,15 @@ const Heading = () => (
                     </div>
                 </div>
             </div>
-            {photoUrl && <div className={styles.photoContainer}>
-                <img src={photoUrl} alt={`${name}`} className={styles.photo} />
-            </div>}
+            {photoUrl && (
+                <div className={styles.photoContainer}>
+                    <img
+                        src={photoUrl}
+                        alt={`${name}`}
+                        className={styles.photo}
+                    />
+                </div>
+            )}
         </div>
         <Socials />
     </header>

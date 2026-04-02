@@ -4,7 +4,6 @@ import { getData, PersonalData } from '@helpers/data'
 import styles from './index.module.scss'
 import React from 'react'
 
-
 // PROTIP: start every bulletpoint of experience with verbs
 
 const experiences = await getData('experiences')
@@ -38,26 +37,28 @@ const ExperienceItem = ({
     description,
     url
 }: PersonalData['experiences'][number]) => {
-    const mappedDescription = (description ?? []).map(line => {
+    const mappedDescription = (description ?? []).map((line) => {
         const trimmedLine = line.trim()
         return trimmedLine.at(-1) === '.' ? trimmedLine : `${trimmedLine}.`
     })
-    return <div className={styles.experienceItem}>
-        <TimelineHeading
-            primaryContent={job}
-            secondaryContent={url ? <a href={url}>{company}</a> : company}
-            date={date}
-        />
-        {mappedDescription && (
-            <div className={styles.description}>
-                <ul>
-                    {mappedDescription.map((line, index) => (
-                        <li key={index}>{line}</li>
-                    ))}
-                </ul>
-            </div>
-        )}
-    </div>
+    return (
+        <div className={styles.experienceItem}>
+            <TimelineHeading
+                primaryContent={job}
+                secondaryContent={url ? <a href={url}>{company}</a> : company}
+                date={date}
+            />
+            {mappedDescription && (
+                <div className={styles.description}>
+                    <ul>
+                        {mappedDescription.map((line, index) => (
+                            <li key={index}>{line}</li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+        </div>
+    )
 }
 
 export default Experience

@@ -17,19 +17,19 @@ function isMonthYearInFuture(mmYyyy: string): boolean {
 const dateRangeSchema = z
     .tuple([
         z.string().regex(monthYearRegex),
-        z.union([z.string().regex(monthYearRegex), z.literal('now')]),
+        z.union([z.string().regex(monthYearRegex), z.literal('now')])
     ])
     .refine(
         ([start, end]) =>
             !isMonthYearInFuture(start) &&
             (end === 'now' || !isMonthYearInFuture(end)),
-        { message: 'date must not be in the future' },
+        { message: 'date must not be in the future' }
     )
 
 const socialSchema = z.looseObject({
     type: z.enum(SOCIAL_TYPES),
     label: nonEmptyString,
-    url: z.url().optional(),
+    url: z.url().optional()
 })
 
 const experienceSchema = z.looseObject({
@@ -38,7 +38,7 @@ const experienceSchema = z.looseObject({
     date: dateRangeSchema,
     description: z.array(nonEmptyString).min(1, 'at least one item required'),
     shortCompany: nonEmptyString.optional(),
-    url: z.url().optional(),
+    url: z.url().optional()
 })
 
 const educationSchema = z.looseObject({
@@ -48,13 +48,13 @@ const educationSchema = z.looseObject({
     thesis: nonEmptyString.optional(),
     date: dateRangeSchema,
     uniUrl: z.url().optional(),
-    thesisUrl: z.url().optional(),
+    thesisUrl: z.url().optional()
 })
 
 const languageSchema = z.looseObject({
     level: z.int().min(1).max(5),
     name: nonEmptyString,
-    description: nonEmptyString,
+    description: nonEmptyString
 })
 
 const keySkillSchema = z.looseObject({
@@ -63,57 +63,72 @@ const keySkillSchema = z.looseObject({
     color: z.string().optional(),
     width: z.number().min(0).max(100).optional(),
     fontColor: z.string().optional(),
-    synonym: z.array(nonEmptyString).optional(),
+    synonym: z.array(nonEmptyString).optional()
 })
 
 const otherSkillsSchema = z.looseObject({
     tech: z.array(nonEmptyString).min(1, 'at least one tech required'),
     excludedTech: z.array(nonEmptyString).optional(),
     synonyms: z.array(nonEmptyString).optional(),
-    potential: z.array(nonEmptyString).optional(),
+    potential: z.array(nonEmptyString).optional()
 })
 
 const activitySchema = z.looseObject({
     label: nonEmptyString,
-    percent: z.number().min(0).max(100),
+    percent: z.number().min(0).max(100)
 })
 
 const projectSchema = z.looseObject({
     name: nonEmptyString,
     owner: nonEmptyString.optional(),
     description: nonEmptyString,
-    link: z.url().optional(),
+    link: z.url().optional()
 })
 
 const personalDataSchema = z.looseObject({
     heading: z.looseObject({ name: nonEmptyString, position: nonEmptyString }),
     socials: z.array(socialSchema).min(1, 'at least one social required'),
     whoAmI: z.looseObject({ content: nonEmptyString }),
-    experiences: z.array(experienceSchema).min(1, 'at least one experience required'),
-    education: z.array(educationSchema).min(1, 'at least one education entry required'),
+    experiences: z
+        .array(experienceSchema)
+        .min(1, 'at least one experience required'),
+    education: z
+        .array(educationSchema)
+        .min(1, 'at least one education entry required'),
     languages: z.array(languageSchema).min(1, 'at least one language required'),
-    keySkills: z.array(keySkillSchema).min(1, 'at least one key skill required'),
+    keySkills: z
+        .array(keySkillSchema)
+        .min(1, 'at least one key skill required'),
     otherSkills: otherSkillsSchema,
     responsibilities: z
         .looseObject({
             companyName: nonEmptyString,
-            activities: z.array(activitySchema).min(1, 'at least one activity required'),
+            activities: z
+                .array(activitySchema)
+                .min(1, 'at least one activity required')
         })
         .refine(
             (data) =>
-                Math.abs(data.activities.reduce((sum, a) => sum + a.percent, 0) - 100) < 1e-6,
-            { message: 'activities percent values must sum to 100', path: ['responsibilities'] },
+                Math.abs(
+                    data.activities.reduce((sum, a) => sum + a.percent, 0) - 100
+                ) < 1e-6,
+            {
+                message: 'activities percent values must sum to 100',
+                path: ['responsibilities']
+            }
         ),
-    projects: z.array(projectSchema).min(1, 'at least one project required'),
+    projects: z.array(projectSchema).min(1, 'at least one project required')
 })
 
 function isLikelyCorsOrNetworkError(reason: unknown): boolean {
-    const msg = typeof reason === 'object' && reason !== null && 'message' in reason
-        ? String((reason as { message: unknown }).message)
-        : String(reason)
-    const code = typeof reason === 'object' && reason !== null && 'code' in reason
-        ? String((reason as { code: unknown }).code)
-        : ''
+    const msg =
+        typeof reason === 'object' && reason !== null && 'message' in reason
+            ? String((reason as { message: unknown }).message)
+            : String(reason)
+    const code =
+        typeof reason === 'object' && reason !== null && 'code' in reason
+            ? String((reason as { code: unknown }).code)
+            : ''
     return (
         code === 'ERR_NETWORK' ||
         /Network Error/i.test(msg) ||
@@ -122,30 +137,33 @@ function isLikelyCorsOrNetworkError(reason: unknown): boolean {
     )
 }
 
-async function validateLogoUrls(keySkills: PersonalData['keySkills']): Promise<void> {
+async function validateLogoUrls(
+    keySkills: PersonalData['keySkills']
+): Promise<void> {
     const skillsWithLogo = keySkills.filter(
         (skill): skill is typeof skill & { logoUrl: string } =>
-            'logoUrl' in skill && Boolean(skill.logoUrl),
+            'logoUrl' in skill && Boolean(skill.logoUrl)
     )
     const results = await Promise.allSettled(
-        skillsWithLogo.map((skill) => axios.get(skill.logoUrl)),
+        skillsWithLogo.map((skill) => axios.get(skill.logoUrl))
     )
     const invalid: Array<{ name: string; reason: string }> = []
     results.forEach((result, i) => {
-        if (result.status === 'rejected' && !isLikelyCorsOrNetworkError(result.reason)) {
+        if (
+            result.status === 'rejected' &&
+            !isLikelyCorsOrNetworkError(result.reason)
+        ) {
             invalid.push({
                 name: skillsWithLogo[i].name,
-                reason: result.reason?.message ?? String(result.reason),
+                reason: result.reason?.message ?? String(result.reason)
             })
         }
     })
     if (invalid.length > 0) {
         const message = [
             '[data] Invalid logo URLs for skills:',
-            ...invalid.map(
-                (x) => `  • ${x.name}: ${x.reason}`,
-            ),
-            'Change the above logo URLs to valid image URLs. If you are sure the logo URLs are valid, please try to refresh the page.',
+            ...invalid.map((x) => `  • ${x.name}: ${x.reason}`),
+            'Change the above logo URLs to valid image URLs. If you are sure the logo URLs are valid, please try to refresh the page.'
         ].join('\n')
         throw new Error(message)
     }

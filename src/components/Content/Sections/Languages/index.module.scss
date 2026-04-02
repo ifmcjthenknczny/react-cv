@@ -29,7 +29,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: calc(0.25rem - (var(--flag-row-height) - var(--wrapper-height)) / 2);
+    margin-top: calc(
+        0.25rem - (var(--flag-row-height) - var(--wrapper-height)) / 2
+    );
 }
 
 .flagRow {

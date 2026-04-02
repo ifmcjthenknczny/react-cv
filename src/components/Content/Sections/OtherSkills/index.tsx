@@ -15,11 +15,16 @@ const {
 
 const keySkills = await getData('keySkills')
 
-const allExcludedTech = [...keySkills.flatMap((skill) => skill.name), ...keySkills.flatMap((skill) => skill.synonym), ...(excludedTech ?? [])].filter(Boolean).flatMap((tech) => tech!.toLowerCase())
+const allExcludedTech = [
+    ...keySkills.flatMap((skill) => skill.name),
+    ...keySkills.flatMap((skill) => skill.synonym),
+    ...(excludedTech ?? [])
+]
+    .filter(Boolean)
+    .flatMap((tech) => tech!.toLowerCase())
 
 // highly reccomended to set it to more than 0
-const randomPokemonAddCount =
-    import.meta.env.VITE_RANDOM_POKEMON_ADD_COUNT || 0
+const randomPokemonAddCount = import.meta.env.VITE_RANDOM_POKEMON_ADD_COUNT || 0
 const LINK_SYMBOL = '-'
 
 const normalizeTechName = (techName: string) => {
@@ -29,11 +34,23 @@ const normalizeTechName = (techName: string) => {
 const OtherSkills = () => (
     <Block
         heading="Other familiar tech"
-        content={<TechContent tech={tech} synonyms={synonyms} potential={potential} />}
+        content={
+            <TechContent
+                tech={tech}
+                synonyms={synonyms}
+                potential={potential}
+            />
+        }
     />
 )
 
-const TechContent = ({ tech }: { tech: string[]; synonyms?: string[], potential?: string[] }) => {
+const TechContent = ({
+    tech
+}: {
+    tech: string[]
+    synonyms?: string[]
+    potential?: string[]
+}) => {
     const [joinedTech, setJoinedTech] = useState(
         tech.map((t) => t.toLocaleLowerCase())
     )
@@ -62,7 +79,7 @@ const TechContent = ({ tech }: { tech: string[]; synonyms?: string[], potential?
                     </span>
                 )
             )}
-            {([...(synonyms ?? []), ...(potential ?? [])]).map((name, i) => (
+            {[...(synonyms ?? []), ...(potential ?? [])].map((name, i) => (
                 <span key={i} className={styles.techSynonym}>
                     {name}
                 </span>

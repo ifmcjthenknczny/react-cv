@@ -6,7 +6,6 @@ import styles from './index.module.scss'
 import unicorn from '../../../../assets/unicorn64.png'
 import React from 'react'
 
-
 const languages = await getData('languages')
 
 const Languages = () => (
@@ -18,11 +17,20 @@ const Languages = () => (
     />
 )
 
-const LanguagesContent = ({ languages }: { languages: PersonalData['languages'] }) => {
-    const sortedLanguages = [...languages].sort((a, b) => b.description.localeCompare(a.description))
+const LanguagesContent = ({
+    languages
+}: {
+    languages: PersonalData['languages']
+}) => {
+    const sortedLanguages = [...languages].sort((a, b) =>
+        b.description.localeCompare(a.description)
+    )
     const maxFlagSize = `${Math.max(...sortedLanguages.map((l) => Math.sqrt(l.level) / 2))}cm`
     return (
-        <div className={styles.language} style={{ ['--flag-row-height' as string]: maxFlagSize }}>
+        <div
+            className={styles.language}
+            style={{ ['--flag-row-height' as string]: maxFlagSize }}
+        >
             {sortedLanguages.map((language, index) => (
                 <LanguageItem {...language} key={index} />
             ))}
@@ -30,10 +38,17 @@ const LanguagesContent = ({ languages }: { languages: PersonalData['languages'] 
     )
 }
 
-const LanguageItem = ({ level, name, description }: PersonalData['languages'][number]) => {
+const LanguageItem = ({
+    level,
+    name,
+    description
+}: PersonalData['languages'][number]) => {
     const size = `${Math.sqrt(level) / 2}cm`
     return (
-        <div className={styles.languageItem} style={{ ['--wrapper-height' as string]: size }}>
+        <div
+            className={styles.languageItem}
+            style={{ ['--wrapper-height' as string]: size }}
+        >
             <div className={styles.flagRow}>
                 <div
                     className={styles.imageWrapper}

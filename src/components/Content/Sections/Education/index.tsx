@@ -4,7 +4,6 @@ import { getData, PersonalData } from '@helpers/data'
 import styles from './index.module.scss'
 import React from 'react'
 
-
 const education = await getData('education')
 
 const Education = () => (
@@ -14,7 +13,11 @@ const Education = () => (
     ></Block>
 )
 
-const EducationContent = ({ educations }: { educations: PersonalData['education'] }) => {
+const EducationContent = ({
+    educations
+}: {
+    educations: PersonalData['education']
+}) => {
     return (
         <>
             {educations.map((education) => {

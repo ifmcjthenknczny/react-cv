@@ -1,7 +1,13 @@
 import type { AnyColor } from 'colord'
 import type { ReactNode } from 'react'
 
-export const SOCIAL_TYPES = ['email', 'phone', 'linkedin', 'github', 'city'] as const
+export const SOCIAL_TYPES = [
+    'email',
+    'phone',
+    'linkedin',
+    'github',
+    'city'
+] as const
 
 type SocialType = (typeof SOCIAL_TYPES)[number]
 
