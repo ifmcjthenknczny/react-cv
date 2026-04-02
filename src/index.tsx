@@ -9,17 +9,18 @@ const Cv = React.lazy(() => import('./Cv'))
 const VALIDATION_ERROR_MSG =
     'data.json validation failed.\nsee console for more information.'
 
-function pdfTitleFromName(fullName: string): string {
+function buildPdfTitle(fullName: string): string {
     const parts = fullName.trim().split(/\s+/).filter(Boolean)
-    const first = parts[0] ?? ''
-    const last = parts[parts.length - 1] ?? ''
+    const firstName = parts[0] ?? ''
+    const lastName = parts[parts.length - 1] ?? ''
 
-    // Keep letters/numbers (including diacritics), but remove chars invalid in Windows filenames.
     const sanitize = (s: string) => s.replace(/[\\/:*?"<>|\s]+/g, '')
-    const firstClean = sanitize(first)
-    const lastClean = sanitize(last)
+    const firstClean = sanitize(firstName)
+    const lastClean = sanitize(lastName)
 
-    if (!firstClean && !lastClean) return 'CV'
+    if (!firstClean || !lastClean) {
+        return 'CV'
+    }
     return `${lastClean.toLowerCase()}${firstClean}`
 }
 
@@ -32,10 +33,8 @@ function App() {
         loadData()
             .then((d) => {
                 setData(d)
-                // App uses `window.print` (see `Cv.tsx`), so `document.title` is what most browsers
-                // use as PDF filename.
                 document.title = d?.heading?.name
-                    ? pdfTitleFromName(d.heading.name)
+                    ? buildPdfTitle(d.heading.name)
                     : 'CV'
             })
             .catch(() => {
