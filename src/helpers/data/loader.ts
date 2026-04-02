@@ -19,13 +19,13 @@ export async function loadData(): Promise<PersonalData | null> {
         const raw = usedRealData
             ? await tryData.json()
             : await (async () => {
-                const fallback = await fetch('/data.example.json')
-                if (!fallback.ok)
-                    throw new Error(
-                        'Neither data.json nor data.example.json could be loaded.'
-                    )
-                return fallback.json()
-            })()
+                  const fallback = await fetch('/data.example.json')
+                  if (!fallback.ok)
+                      throw new Error(
+                          'Neither data.json nor data.example.json could be loaded.'
+                      )
+                  return fallback.json()
+              })()
         return validateData(raw)
     })()
     return dataPromise

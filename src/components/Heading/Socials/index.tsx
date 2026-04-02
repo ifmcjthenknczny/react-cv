@@ -6,7 +6,6 @@ import styles from './index.module.scss'
 import { splitFullName } from '@helpers/utils'
 import React from 'react'
 
-
 const socials = await getData('socials')
 const { name: fullName } = await getData('heading')
 
@@ -20,7 +19,10 @@ const Socials = () => (
 
 const [name] = splitFullName(fullName)
 
-function toMappedUrl(type: PersonalData['socials'][number]['type'], label: string) {
+function toMappedUrl(
+    type: PersonalData['socials'][number]['type'],
+    label: string
+) {
     if (type === 'email') {
         return `mailto:${label}?subject=Response%20to%20Your%20CV&body=Hi%20${name},%0D%0A%0D%0ABest,%0D%0A%0D%0A`
     }

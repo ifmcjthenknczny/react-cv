@@ -5,10 +5,10 @@ export const determineFontColor = (backgroundHex: string): string => {
         const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
         return result
             ? [
-                parseInt(result[1], 16),
-                parseInt(result[2], 16),
-                parseInt(result[3], 16)
-            ]
+                  parseInt(result[1], 16),
+                  parseInt(result[2], 16),
+                  parseInt(result[3], 16)
+              ]
             : [0, 0, 0]
     }
 
@@ -52,8 +52,8 @@ export const determineFontColor = (backgroundHex: string): string => {
             ? '#ffffff'
             : '#000000'
         : contrastRatioWithWhite >= 4.5
-            ? '#ffffff'
-            : '#000000'
+          ? '#ffffff'
+          : '#000000'
 }
 
 export const hexToRgba = (hex: string, alpha: number) => {

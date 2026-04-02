@@ -25,9 +25,9 @@ function buildPdfTitle(fullName: string): string {
 }
 
 function App() {
-    const [data, setData] = useState<Awaited<ReturnType<typeof loadData>> | undefined>(
-        undefined
-    )
+    const [data, setData] = useState<
+        Awaited<ReturnType<typeof loadData>> | undefined
+    >(undefined)
 
     useEffect(() => {
         loadData()
