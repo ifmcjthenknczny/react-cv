@@ -37,3 +37,4 @@ data.json
 photo.*
 !photo.example.*
 data.backup.json
+data.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9].json
